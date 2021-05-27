@@ -15,6 +15,8 @@
 		5205F501265FC1E5007CEBAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4D6265FC1E3007CEBAD /* ContentView.swift */; };
 		5205F502265FC1E5007CEBAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5205F4D7265FC1E5007CEBAD /* Assets.xcassets */; };
 		5205F503265FC1E5007CEBAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5205F4D7265FC1E5007CEBAD /* Assets.xcassets */; };
+		5205F518265FC553007CEBAD /* CalculatorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F517265FC553007CEBAD /* CalculatorButtonView.swift */; };
+		5205F519265FC553007CEBAD /* CalculatorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F517265FC553007CEBAD /* CalculatorButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 		5205F4F7265FC1E5007CEBAD /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5205F4FB265FC1E5007CEBAD /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		5205F4FD265FC1E5007CEBAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5205F517265FC553007CEBAD /* CalculatorButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorButtonView.swift; path = Views/CalculatorButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +103,7 @@
 			children = (
 				5205F4D5265FC1E3007CEBAD /* FluidInterfacesSwiftUIApp.swift */,
 				5205F4D6265FC1E3007CEBAD /* ContentView.swift */,
+				5205F516265FC52D007CEBAD /* Views */,
 				5205F4D7265FC1E5007CEBAD /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -149,6 +153,14 @@
 				5205F4FD265FC1E5007CEBAD /* Info.plist */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		5205F516265FC52D007CEBAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5205F517265FC553007CEBAD /* CalculatorButtonView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5205F500265FC1E5007CEBAD /* ContentView.swift in Sources */,
+				5205F518265FC553007CEBAD /* CalculatorButtonView.swift in Sources */,
 				5205F4FE265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5205F501265FC1E5007CEBAD /* ContentView.swift in Sources */,
+				5205F519265FC553007CEBAD /* CalculatorButtonView.swift in Sources */,
 				5205F4FF265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
