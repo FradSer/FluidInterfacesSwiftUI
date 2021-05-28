@@ -33,7 +33,7 @@ struct ContentView: View {
     NavigationView {
       List(list) { listItem in
         NavigationLink(destination: destinationView(listItem.name)) {
-          HStack {
+          HStack(spacing: 16) {
             Image(listItem.icon)
               .resizable()
               .frame(width: 28, height: 28, alignment: .center)
