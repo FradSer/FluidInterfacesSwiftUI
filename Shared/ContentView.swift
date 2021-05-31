@@ -52,6 +52,8 @@ struct ContentView: View {
     switch destination {
     case "Calculator Button":
       CalculatorButtonView()
+    case "Spring Animations":
+      SpringAnimationsView()
     default:
       Text("ERROR")
     }

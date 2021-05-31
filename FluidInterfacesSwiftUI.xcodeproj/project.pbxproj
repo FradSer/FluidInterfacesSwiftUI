@@ -17,6 +17,10 @@
 		5205F503265FC1E5007CEBAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5205F4D7265FC1E5007CEBAD /* Assets.xcassets */; };
 		5205F518265FC553007CEBAD /* CalculatorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F517265FC553007CEBAD /* CalculatorButtonView.swift */; };
 		5205F519265FC553007CEBAD /* CalculatorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F517265FC553007CEBAD /* CalculatorButtonView.swift */; };
+		522ECD922664FE1200F69884 /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD912664FE1200F69884 /* FlashlightButtonView.swift */; };
+		522ECD932664FE1200F69884 /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD912664FE1200F69884 /* FlashlightButtonView.swift */; };
+		522ECD952664FE2F00F69884 /* SpringAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD942664FE2F00F69884 /* SpringAnimationsView.swift */; };
+		522ECD962664FE2F00F69884 /* SpringAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD942664FE2F00F69884 /* SpringAnimationsView.swift */; };
 		526A726A2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726B2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726D2660D66300B11792 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
@@ -56,6 +60,8 @@
 		5205F4FB265FC1E5007CEBAD /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		5205F4FD265FC1E5007CEBAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5205F517265FC553007CEBAD /* CalculatorButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalculatorButtonView.swift; path = Views/CalculatorButtonView.swift; sourceTree = "<group>"; };
+		522ECD912664FE1200F69884 /* FlashlightButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlashlightButtonView.swift; path = Views/FlashlightButtonView.swift; sourceTree = "<group>"; };
+		522ECD942664FE2F00F69884 /* SpringAnimationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpringAnimationsView.swift; path = Views/SpringAnimationsView.swift; sourceTree = "<group>"; };
 		526A72692660D5A700B11792 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		526A726C2660D66300B11792 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +172,8 @@
 		5205F516265FC52D007CEBAD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				522ECD942664FE2F00F69884 /* SpringAnimationsView.swift */,
+				522ECD912664FE1200F69884 /* FlashlightButtonView.swift */,
 				5205F517265FC553007CEBAD /* CalculatorButtonView.swift */,
 			);
 			name = Views;
@@ -283,6 +291,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 				Base,
 			);
 			mainGroup = 5205F4CF265FC1E3007CEBAD;
@@ -336,8 +345,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522ECD952664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
 				526A726D2660D66300B11792 /* Extensions.swift in Sources */,
 				5205F500265FC1E5007CEBAD /* ContentView.swift in Sources */,
+				522ECD922664FE1200F69884 /* FlashlightButtonView.swift in Sources */,
 				526A726A2660D5A700B11792 /* ViewModifiers.swift in Sources */,
 				5205F518265FC553007CEBAD /* CalculatorButtonView.swift in Sources */,
 				5205F4FE265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */,
@@ -348,8 +359,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522ECD962664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
 				526A726E2660D66300B11792 /* Extensions.swift in Sources */,
 				5205F501265FC1E5007CEBAD /* ContentView.swift in Sources */,
+				522ECD932664FE1200F69884 /* FlashlightButtonView.swift in Sources */,
 				526A726B2660D5A700B11792 /* ViewModifiers.swift in Sources */,
 				5205F519265FC553007CEBAD /* CalculatorButtonView.swift in Sources */,
 				5205F4FF265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */,
