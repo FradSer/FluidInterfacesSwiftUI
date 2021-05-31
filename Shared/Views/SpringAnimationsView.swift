@@ -13,20 +13,29 @@ import SwiftUI
 ///
 /// # Key Features
 ///
-/// 1. Uses“design-friendly”parameters.
-/// 2. Noconceptofanimationduration.
-/// 3. Easilyinterruptible.
+/// 1. Uses SwiftUI `spring()` animation.
+/// 2. No concept of animation duration in single `spring()`.
+/// 3. Easily interruptible.
 ///
 /// # Design Theory
 ///
 /// Springs make great animation models because of their speed and natural appearance. A spring
-/// animation starts incredibly quickly, spending most of its time gradually approaching its final state.
+/// animation starts incredibly quickly, spending most of its time gradually approaching its final
+/// state.
+///
 /// This is perfect for creating interfaces that feel responsive—they spring to life!
+///
+/// - Note:
+///  A persistent spring animation. When mixed with other `spring()` or
+///  `interactiveSpring()` animations on the same property, each animation will be replaced
+///  by their successor, preserving velocity from one animation to the next. Optionally blends the
+///  response values between springs over a time period.
 ///
 /// # References
 ///
 /// - [Building Fluid Interfaces. How to create natural gestures and…](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
 /// - [SOLVED/ Instantly reset state of animation. ](https://www.hackingwithswift.com/forums/swiftui/instantly-reset-state-of-animation/4494 )
+/// - [swiftui - Spring Animation/ What does the blendDuration parameter do?](https://stackoverflow.com/a/59170144 )
 
 struct SpringAnimationsView: View {
   // MARK: Internal
@@ -35,8 +44,7 @@ struct SpringAnimationsView: View {
     VStack(spacing: 128) {
       ResetRoundedRectangle(
         response: $response,
-        dampingFraction: $dampingFraction,
-        blendDuration: $blendDuration
+        dampingFraction: $dampingFraction
       )
       .id(viewID)
 
@@ -53,14 +61,6 @@ struct SpringAnimationsView: View {
         Slider(
           value: $dampingFraction,
           in: 0 ... 1.0,
-          onEditingChanged: { _ in
-            sliderChanged()
-          }
-        )
-        HeaderView(title: "Blend Duratio", number: $blendDuration)
-        Slider(
-          value: $blendDuration,
-          in: 0 ... 5.0,
           onEditingChanged: { _ in
             sliderChanged()
           }
@@ -109,7 +109,6 @@ private struct ResetRoundedRectangle: View {
 
   @Binding var response: Double
   @Binding var dampingFraction: Double
-  @Binding var blendDuration: Double
 
   var body: some View {
     let offset = CGFloat.fullScreenWidth * 0.62 / 2.0
@@ -127,7 +126,10 @@ private struct ResetRoundedRectangle: View {
         withAnimation(Animation.spring(
           response: response,
           dampingFraction: dampingFraction,
-          blendDuration: blendDuration
+          /// In single `spring()` animation, it is no need to use `blendDuration`.
+          /// If you want to konw how `blendDuration` works, please see
+          /// `SpringBlendDuration` from [Mark Moeykens](https://stackoverflow.com/a/59170144 ).
+          blendDuration: 0.0
         )
         .repeatForever(autoreverses: false)) {
           isAnimated = true
