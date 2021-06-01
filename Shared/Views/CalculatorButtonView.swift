@@ -105,7 +105,7 @@ struct CalculatorButtonStyle1: ButtonStyle {
       .background(
         Circle()
           .foregroundColor(configuration.isPressed ?
-            .highlightedColor : .normalColor)
+            .highlightedButtonColor : .normalButtonColor)
           .animation(configuration.isPressed ?
             nil : .easeOut(duration: 0.5))
       )
@@ -194,7 +194,7 @@ struct CalculatorButtonStyle2: PrimitiveButtonStyle {
         GeometryReader { _ in
           Circle()
             .foregroundColor(dragState.isActive ?
-              .highlightedColor : .normalColor)
+              .highlightedButtonColor : .normalButtonColor)
             .animation(dragState.isActive ?
               nil : .easeOut(duration: minimumLongPressDuration))
             .overlay(dragState.isDragging ? Circle()
@@ -208,12 +208,6 @@ struct CalculatorButtonStyle2: PrimitiveButtonStyle {
       .animation(.default)
       .gesture(longPressDrag)
   }
-}
-
-/// Colors of calculator button.
-private extension Color {
-  static let normalColor = Color(red: 0.2, green: 0.2, blue: 0.2)
-  static let highlightedColor = Color(red: 0.467, green: 0.467, blue: 0.467)
 }
 
 // MARK: - CalculatorButtonView_Previews
