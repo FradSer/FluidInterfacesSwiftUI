@@ -56,6 +56,8 @@ struct ContentView: View {
       SpringAnimationsView()
     case "Flashlight Button":
       FlashlightButtonView()
+    case "Rubberbanding":
+      RubberbandingView()
     default:
       Text("ERROR")
     }
