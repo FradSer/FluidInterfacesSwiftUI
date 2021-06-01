@@ -68,7 +68,6 @@ struct SpringAnimationsView: View {
       }
     }
     .padding()
-    .fullScreenBlackBackgroundIgnoresSafeArea()
   }
 
   // MARK: Private
@@ -85,7 +84,6 @@ struct SpringAnimationsView: View {
         Text("\(number, specifier: "%.2f")")
           .font(.system(.body).monospacedDigit())
       }
-      .foregroundColor(.white)
     }
   }
 
