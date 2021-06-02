@@ -62,7 +62,9 @@ struct RubberbandingView: View {
   /// A Apple-like rubberbanding.
   /// - Parameter of: Offset of movement distance. Base value to be power raised.
   /// - Returns: The power raised to drag movement distance .
-  /// - Note: This is not how Apple preforms rubberbanding, but simplely.
+  /// - Note:
+  /// This is not how Apple preforms rubberbanding, but simplely.
+  /// Graphs of power functions [here](https://www.desmos.com/calculator/jfesw7c1re ).
   private func rubberbanding(_ of: CGFloat) -> CGFloat {
     var offset = Double(of)
     offset = offset > 0 ? pow(offset, 0.7) : -pow(-offset, 0.7)
