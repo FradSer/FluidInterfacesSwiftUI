@@ -58,6 +58,8 @@ struct ContentView: View {
       FlashlightButtonView()
     case "Rubberbanding":
       RubberbandingView()
+    case "Acceleration Pausing":
+      AccelerationPausingView()
     default:
       Text("ERROR")
     }
