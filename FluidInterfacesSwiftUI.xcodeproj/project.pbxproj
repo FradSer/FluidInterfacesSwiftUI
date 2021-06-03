@@ -25,6 +25,8 @@
 		522ECDA5266641C400F69884 /* RubberbandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA3266641C400F69884 /* RubberbandingView.swift */; };
 		522ECDA72667676000F69884 /* AccelerationPausingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA62667676000F69884 /* AccelerationPausingView.swift */; };
 		522ECDA82667676000F69884 /* AccelerationPausingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA62667676000F69884 /* AccelerationPausingView.swift */; };
+		522ECDB12668B9A100F69884 /* FormatedNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB02668B9A100F69884 /* FormatedNumView.swift */; };
+		522ECDB22668B9A100F69884 /* FormatedNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB02668B9A100F69884 /* FormatedNumView.swift */; };
 		526A726A2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726B2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726D2660D66300B11792 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
@@ -68,6 +70,7 @@
 		522ECD942664FE2F00F69884 /* SpringAnimationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpringAnimationsView.swift; path = Views/SpringAnimationsView.swift; sourceTree = "<group>"; };
 		522ECDA3266641C400F69884 /* RubberbandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RubberbandingView.swift; path = Views/RubberbandingView.swift; sourceTree = "<group>"; };
 		522ECDA62667676000F69884 /* AccelerationPausingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccelerationPausingView.swift; path = Views/AccelerationPausingView.swift; sourceTree = "<group>"; };
+		522ECDB02668B9A100F69884 /* FormatedNumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatedNumView.swift; path = Components/FormatedNumView.swift; sourceTree = "<group>"; };
 		526A72692660D5A700B11792 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		526A726C2660D66300B11792 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +127,7 @@
 				526A726C2660D66300B11792 /* Extensions.swift */,
 				526A726F2660D67200B11792 /* Styles */,
 				5205F516265FC52D007CEBAD /* Views */,
+				522ECDAF2668B82C00F69884 /* Components */,
 				5205F4D7265FC1E5007CEBAD /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -185,6 +189,14 @@
 				522ECDA62667676000F69884 /* AccelerationPausingView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		522ECDAF2668B82C00F69884 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				522ECDB02668B9A100F69884 /* FormatedNumView.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		526A726F2660D67200B11792 /* Styles */ = {
@@ -354,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				522ECD952664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
+				522ECDB12668B9A100F69884 /* FormatedNumView.swift in Sources */,
 				522ECDA72667676000F69884 /* AccelerationPausingView.swift in Sources */,
 				526A726D2660D66300B11792 /* Extensions.swift in Sources */,
 				522ECDA4266641C400F69884 /* RubberbandingView.swift in Sources */,
@@ -361,6 +374,7 @@
 				522ECD922664FE1200F69884 /* FlashlightButtonView.swift in Sources */,
 				526A726A2660D5A700B11792 /* ViewModifiers.swift in Sources */,
 				5205F518265FC553007CEBAD /* CalculatorButtonView.swift in Sources */,
+				522ECDAA2667B41900F69884 /* RewardingMomentumView.swift in Sources */,
 				5205F4FE265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				522ECD962664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
+				522ECDB22668B9A100F69884 /* FormatedNumView.swift in Sources */,
 				522ECDA82667676000F69884 /* AccelerationPausingView.swift in Sources */,
 				526A726E2660D66300B11792 /* Extensions.swift in Sources */,
 				522ECDA5266641C400F69884 /* RubberbandingView.swift in Sources */,
