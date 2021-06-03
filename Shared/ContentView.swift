@@ -60,6 +60,8 @@ struct ContentView: View {
       RubberbandingView()
     case "Acceleration Pausing":
       AccelerationPausingView()
+    case "Rewarding Momentum":
+      RewardingMomentumView()
     default:
       Text("ERROR")
     }
