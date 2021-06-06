@@ -109,30 +109,32 @@ private struct ResetRoundedRectangle: View {
   @Binding var dampingFraction: Double
 
   var body: some View {
-    let offset = CGFloat.fullScreenWidth * 0.62 / 2.0
-    RoundedRectangle(cornerRadius: 32.0)
-      .fill(
-        LinearGradient(
-          gradient: Gradient(colors: [.topColor, .bottomColor]),
-          startPoint: .top,
-          endPoint: .bottom
+    GeometryReader { geometry in
+      RoundedRectangle(cornerRadius: 32.0)
+        .fill(
+          LinearGradient(
+            gradient: Gradient(colors: [.topColor, .bottomColor]),
+            startPoint: .top,
+            endPoint: .bottom
+          )
         )
-      )
-      .frame(width: 120, height: 120, alignment: .center)
-      .offset(x: isAnimated ? offset : -offset)
-      .onAppear {
-        withAnimation(Animation.spring(
-          response: response,
-          dampingFraction: dampingFraction,
-          /// In single `spring()` animation, it is no need to use `blendDuration`.
-          /// If you want to konw how `blendDuration` works, please see
-          /// `SpringBlendDuration` from [Mark Moeykens](https://stackoverflow.com/a/59170144 ).
-          blendDuration: 0.0
-        )
-        .repeatForever(autoreverses: false)) {
-          isAnimated = true
+        .frame(width: 120, height: 120, alignment: .center)
+        .offset(x: isAnimated ? 0 : geometry.size.width - 120,
+                y: geometry.size.height / 2)
+        .onAppear {
+          withAnimation(Animation.spring(
+            response: response,
+            dampingFraction: dampingFraction,
+            /// In single `spring()` animation, it is no need to use `blendDuration`.
+            /// If you want to konw how `blendDuration` works, please see
+            /// `SpringBlendDuration` from [Mark Moeykens](https://stackoverflow.com/a/59170144 ).
+            blendDuration: 0.0
+          )
+          .repeatForever(autoreverses: false)) {
+            isAnimated = true
+          }
         }
-      }
+    }
   }
 
   // MARK: Private
