@@ -29,6 +29,8 @@
 		522ECDAB2667B41900F69884 /* RewardingMomentumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA92667B41900F69884 /* RewardingMomentumView.swift */; };
 		522ECDB12668B9A100F69884 /* FormatedNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB02668B9A100F69884 /* FormatedNumView.swift */; };
 		522ECDB22668B9A100F69884 /* FormatedNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB02668B9A100F69884 /* FormatedNumView.swift */; };
+		522ECDB72668BD8500F69884 /* FaceTimePiPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */; };
+		522ECDB82668BD8500F69884 /* FaceTimePiPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */; };
 		526A726A2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726B2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726D2660D66300B11792 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
@@ -74,6 +76,7 @@
 		522ECDA62667676000F69884 /* AccelerationPausingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccelerationPausingView.swift; path = Views/AccelerationPausingView.swift; sourceTree = "<group>"; };
 		522ECDA92667B41900F69884 /* RewardingMomentumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RewardingMomentumView.swift; path = Views/RewardingMomentumView.swift; sourceTree = "<group>"; };
 		522ECDB02668B9A100F69884 /* FormatedNumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatedNumView.swift; path = Components/FormatedNumView.swift; sourceTree = "<group>"; };
+		522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaceTimePiPView.swift; path = Views/FaceTimePiPView.swift; sourceTree = "<group>"; };
 		526A72692660D5A700B11792 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		526A726C2660D66300B11792 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,6 +194,7 @@
 				522ECDA3266641C400F69884 /* RubberbandingView.swift */,
 				522ECDA62667676000F69884 /* AccelerationPausingView.swift */,
 				522ECDA92667B41900F69884 /* RewardingMomentumView.swift */,
+				522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -369,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522ECDB72668BD8500F69884 /* FaceTimePiPView.swift in Sources */,
 				522ECD952664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
 				522ECDB12668B9A100F69884 /* FormatedNumView.swift in Sources */,
 				522ECDA72667676000F69884 /* AccelerationPausingView.swift in Sources */,
@@ -387,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				522ECDB82668BD8500F69884 /* FaceTimePiPView.swift in Sources */,
 				522ECD962664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
 				522ECDB22668B9A100F69884 /* FormatedNumView.swift in Sources */,
 				522ECDA82667676000F69884 /* AccelerationPausingView.swift in Sources */,

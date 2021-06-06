@@ -62,6 +62,8 @@ struct ContentView: View {
       AccelerationPausingView()
     case "Rewarding Momentum":
       RewardingMomentumView()
+    case "FaceTime PiP":
+      FaceTimePiPView()
     default:
       Text("ERROR")
     }
