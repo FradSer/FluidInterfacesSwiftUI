@@ -56,10 +56,13 @@ struct FaceTimePiPView: View {
                   height: value.translation.height + self.newPosition.height
                 )
               }
-              .onEnded { _ in
+              .onEnded { value in
+                self.predictedEndLocation = value.predictedEndLocation
+
                 self.roundedRectanglePosition =
-                  findRoundedRectanglePosition(geometry, currentPosition) ??
-                  .topLeading
+                  findRoundedRectanglePosition(
+                    geometry, currentPosition, predictedEndLocation
+                  ).position ?? .topLeading
 
                 switch roundedRectanglePosition {
                 case .topLeading:
@@ -74,8 +77,17 @@ struct FaceTimePiPView: View {
                     height: geometryHeight - 180
                   )
                 }
-                withAnimation(.default) {
-                  self.currentPosition = self.newPosition
+
+                if findRoundedRectanglePosition(
+                  geometry, currentPosition, predictedEndLocation
+                ).shouldSpring {
+                  withAnimation(.spring()) {
+                    self.currentPosition = self.newPosition
+                  }
+                } else {
+                  withAnimation(.default) {
+                    self.currentPosition = self.newPosition
+                  }
                 }
               }
           )
@@ -120,7 +132,7 @@ struct FaceTimePiPView: View {
   @State private var roundedRectanglePosition: RoundedRectanglePosition =
     .topLeading
 
-  @State private var currentVelocity: CGSize = .zero
+  @State private var predictedEndLocation: CGPoint = .zero
 
   @State private var currentPosition: CGSize = .zero
   @State private var newPosition: CGSize = .zero
@@ -132,8 +144,9 @@ struct FaceTimePiPView: View {
   /// - Returns: The corner which rounded rectangle should be pinned.
   private func findRoundedRectanglePosition(
     _ geometry: GeometryProxy,
-    _ currentPosition: CGSize
-  ) -> RoundedRectanglePosition? {
+    _ currentPosition: CGSize,
+    _ predictedEndLocation: CGPoint
+  ) -> (position: RoundedRectanglePosition?, shouldSpring: Bool) {
     /// Current position X / width
     let currentX = currentPosition.width
     /// Current position Y / height
@@ -144,21 +157,39 @@ struct FaceTimePiPView: View {
     /// `GeometryProxy` Y / height
     let geometryY = geometry.size.height
 
-    if currentX < geometryX / 2,
-       currentY < geometryY / 2 {
-      return .topLeading
+    /// Predicted End Location X
+    let predictedX = predictedEndLocation.x
+    /// Predicted End Location Y
+    let predictedY = predictedEndLocation.y
+
+    // - TODO: Fix the CHAOS logic.
+    if predictedX < geometryX / 2,
+       predictedY < geometryY / 2 {
+      return (position: .topLeading, shouldSpring: true)
+    } else if predictedX > geometryX / 2,
+              predictedY < geometryY / 2 {
+      return (position: .topTrailing, shouldSpring: true)
+    } else if predictedX < geometryX / 2,
+              predictedY > geometryY / 2 {
+      return (position: .bottomLeading, shouldSpring: true)
+    } else if predictedX > geometryX / 2,
+              predictedY > geometryY / 2 {
+      return (position: .bottomTrailing, shouldSpring: true)
+    } else if currentX < geometryX / 2,
+              currentY < geometryY / 2 {
+      return (position: .topLeading, shouldSpring: false)
     } else if currentX > geometryX / 2,
               currentY < geometryY / 2 {
-      return .topTrailing
+      return (position: .topTrailing, shouldSpring: false)
     } else if currentX < geometryX / 2,
               currentY > geometryY / 2 {
-      return .bottomLeading
+      return (position: .bottomLeading, shouldSpring: false)
     } else if currentX > geometryX / 2,
               currentY > geometryY / 2 {
-      return .bottomTrailing
+      return (position: .bottomTrailing, shouldSpring: false)
     } else {
       // -TODO: Catch the error
-      return nil
+      return (nil, false)
     }
   }
 }
