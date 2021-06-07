@@ -25,8 +25,7 @@ struct ContentView: View {
     ListItem(icon: "icon_rubber", name: "Rubberbanding"),
     ListItem(icon: "icon_acceleration", name: "Acceleration Pausing"),
     ListItem(icon: "icon_momentum", name: "Rewarding Momentum"),
-    ListItem(icon: "icon_pip", name: "FaceTime PiP"),
-    ListItem(icon: "icon_rotation", name: "Rotation")
+    ListItem(icon: "icon_pip", name: "FaceTime PiP")
   ]
 
   var body: some View {
