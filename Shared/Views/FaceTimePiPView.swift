@@ -41,7 +41,7 @@ struct FaceTimePiPView: View {
   // MARK: Internal
 
   var body: some View {
-    ZStack(alignment: .bottom) {
+    ZStack {
       GeometryReader { geometry in
         let geometryWidth = geometry.size.width
         let geometryHeight = geometry.size.height
@@ -137,6 +137,8 @@ struct FaceTimePiPView: View {
     case bottomTrailing
   }
 
+  @Environment(\.colorScheme) private var colorScheme
+
   @State private var roundedRectanglePosition: RoundedRectanglePosition =
     .topLeading
 
@@ -230,7 +232,10 @@ extension FaceTimePiPView {
     .foregroundColor(.white)
     .padding()
     .background(RoundedRectangle(cornerRadius: 8)
-      .fill(Color.black.opacity(0.3)))
+      .fill(
+        colorScheme == .dark ?
+          Color.white.opacity(0.3) : Color.black.opacity(0.3)
+      ))
   }
 }
 
