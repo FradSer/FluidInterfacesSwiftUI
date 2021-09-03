@@ -39,9 +39,7 @@ struct RewardingMomentumView: View {
     let tap = TapGesture()
       .onEnded {
         togglePositionY()
-        withAnimation(.default) {
-          self.currentPositionY = self.newPositionY
-        }
+        withAnimation(.default) { self.currentPositionY = self.newPositionY }
       }
     let drag = DragGesture()
       .onChanged { value in
@@ -52,57 +50,18 @@ struct RewardingMomentumView: View {
       }
       .onEnded { value in
         let offsetY = value.translation.height
-
-        if offsetY > 100 {
-          isActived = true
-        } else {
-          isActived = false
-        }
+        if offsetY > 100 { isActived = true } else { isActived = false }
 
         togglePositionY()
-
-        withAnimation(.spring()) {
-          self.currentPositionY = self.newPositionY
-        }
+        withAnimation(.spring()) { self.currentPositionY = self.newPositionY }
       }
 
     ZStack {
-      ZStack {
-        RoundedRectangle(cornerRadius: 32)
-          .fill(
-            LinearGradient(
-              gradient: Gradient(colors: [.topColor, .bottomColor]),
-              startPoint: .top,
-              endPoint: .bottom
-            )
-          )
-        VStack {
-          RoundedRectangle(cornerRadius: 4)
-            .frame(width: 64, height: 8, alignment: .center)
-            .foregroundColor(.white.opacity(0.7))
-            .padding()
-          Spacer()
-        }
-      }
-      .offset(x: 0, y: currentPositionY)
-      .gesture(drag)
-      .gesture(tap)
+      heroView
+        .gesture(drag)
+        .gesture(tap)
 
-      VStack {
-        Spacer()
-        HStack(spacing: 32) {
-          Text("Current Position:").textCase(.uppercase)
-          Spacer()
-          FormatedNumView(num: $currentPositionY)
-        }
-        .padding()
-        .background(
-          RoundedRectangle(cornerRadius: 8)
-            .fill(Color.white.opacity(0.7))
-        )
-      }
-      .offset(y: 16.0)
-      .padding()
+      debugView
     }
   }
 
@@ -117,6 +76,47 @@ struct RewardingMomentumView: View {
     isActived.toggle()
     newPositionY = isActived ?
       .fullScreenHeight * 0.1 : .fullScreenHeight * 0.68
+  }
+}
+
+extension RewardingMomentumView {
+  private var heroView: some View {
+    ZStack {
+      RoundedRectangle(cornerRadius: 32)
+        .fill(
+          LinearGradient(
+            gradient: Gradient(colors: [.topColor, .bottomColor]),
+            startPoint: .top,
+            endPoint: .bottom
+          )
+        )
+      VStack {
+        RoundedRectangle(cornerRadius: 4)
+          .frame(width: 64, height: 8, alignment: .center)
+          .foregroundColor(.white.opacity(0.7))
+          .padding()
+        Spacer()
+      }
+    }
+    .offset(y: currentPositionY)
+  }
+
+  private var debugView: some View {
+    VStack {
+      Spacer()
+      HStack(spacing: 32) {
+        Text("Current Position:").textCase(.uppercase)
+        Spacer()
+        FormatedNumView(num: $currentPositionY)
+      }
+      .padding()
+      .background(
+        RoundedRectangle(cornerRadius: 8)
+          .fill(Color.white.opacity(0.7))
+      )
+    }
+    .offset(y: 16.0)
+    .padding()
   }
 }
 
