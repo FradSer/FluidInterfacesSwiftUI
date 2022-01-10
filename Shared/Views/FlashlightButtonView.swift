@@ -65,26 +65,20 @@ struct FlashlightButtonView: View {
       }
 
     Image(systemName:
-      stateConfirmed(
-        "flashlight.on.fill",
-        "flashlight.off.fill"
-      ) as! String)
-      .foregroundColor(stateConfirmed(Color.black, Color.white) as? Color)
+      stateConfirmed("flashlight.on.fill", "flashlight.off.fill"))
+      .foregroundColor(stateConfirmed(.black, .white))
       .animation(nil)
       .font(.largeTitle)
       .padding(32)
       .background(
         Circle()
           .foregroundColor(
-            stateConfirmed(
-              Color.highlightedButtonColor,
-              Color.normalButtonColor
-            ) as? Color
+            stateConfirmed(.highlightedButtonColor, .normalButtonColor)
           )
           .animation(nil)
       )
-      .scaleEffect(pressState.isPressing ? 1.2 : 1)
-      .animation(.spring(response: 0.2, dampingFraction: 0.4))
+      .scaleEffect(pressState.isPressing ? 1.4 : 1)
+      .animation(.easeOut(duration: 0.5))
       .gesture(longPress)
   }
 
@@ -103,9 +97,9 @@ struct FlashlightButtonView: View {
 
     var isPressing: Bool {
       switch self {
-      case .activated, .confirmed:
+      case .activated:
         return true
-      case .reset:
+      case .confirmed, .reset:
         return false
       }
     }
@@ -129,10 +123,7 @@ struct FlashlightButtonView: View {
   ///   - activedItem: Actived item.
   ///   - inactivedItem: Inactived item.
   /// - Returns: `Any`.
-  private func stateConfirmed(
-    _ activedItem: Any,
-    _ inactivedItem: Any
-  ) -> Any {
+  private func stateConfirmed<T>(_ activedItem: T, _ inactivedItem: T) -> T {
     return viewState ?
       pressState.isConfirmed ?
       activedItem : inactivedItem :

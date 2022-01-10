@@ -87,11 +87,11 @@ struct SpringAnimationsView: View {
     }
   }
 
-  @State private var isAnimated: Bool = false
+  @State private var isAnimated = false
 
-  @State private var response: Double = 0.55
-  @State private var dampingFraction: Double = 0.825
-  @State private var blendDuration: Double = 0.0
+  @State private var response = 0.55
+  @State private var dampingFraction = 0.825
+  @State private var blendDuration = 0.0
 
   @State private var viewID = 0
 
@@ -139,7 +139,7 @@ private struct ResetRoundedRectangle: View {
 
   // MARK: Private
 
-  @State private var isAnimated: Bool = false
+  @State private var isAnimated = false
 }
 
 /// Colors of rounded rectangle.

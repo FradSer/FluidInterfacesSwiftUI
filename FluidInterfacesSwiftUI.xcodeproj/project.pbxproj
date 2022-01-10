@@ -31,6 +31,8 @@
 		522ECDB22668B9A100F69884 /* FormatedNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB02668B9A100F69884 /* FormatedNumView.swift */; };
 		522ECDB72668BD8500F69884 /* FaceTimePiPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */; };
 		522ECDB82668BD8500F69884 /* FaceTimePiPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */; };
+		525024EC27159F0400B8525D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525024EB27159F0400B8525D /* GradientView.swift */; };
+		525024ED27159F0400B8525D /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525024EB27159F0400B8525D /* GradientView.swift */; };
 		526A726A2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726B2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726D2660D66300B11792 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
@@ -77,8 +79,10 @@
 		522ECDA92667B41900F69884 /* RewardingMomentumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RewardingMomentumView.swift; path = Views/RewardingMomentumView.swift; sourceTree = "<group>"; };
 		522ECDB02668B9A100F69884 /* FormatedNumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatedNumView.swift; path = Components/FormatedNumView.swift; sourceTree = "<group>"; };
 		522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaceTimePiPView.swift; path = Views/FaceTimePiPView.swift; sourceTree = "<group>"; };
+		525024EB27159F0400B8525D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		526A72692660D5A700B11792 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		526A726C2660D66300B11792 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		52BEF015266E13A600A946C8 /* RotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RotationView.swift; path = Views/RotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +199,7 @@
 				522ECDA62667676000F69884 /* AccelerationPausingView.swift */,
 				522ECDA92667B41900F69884 /* RewardingMomentumView.swift */,
 				522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */,
+				52BEF015266E13A600A946C8 /* RotationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				522ECDB02668B9A100F69884 /* FormatedNumView.swift */,
+				525024EB27159F0400B8525D /* GradientView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -295,7 +301,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					5205F4DB265FC1E5007CEBAD = {
 						CreatedOnToolsVersion = 12.5;
@@ -381,6 +387,7 @@
 				522ECDA4266641C400F69884 /* RubberbandingView.swift in Sources */,
 				5205F500265FC1E5007CEBAD /* ContentView.swift in Sources */,
 				522ECD922664FE1200F69884 /* FlashlightButtonView.swift in Sources */,
+				525024EC27159F0400B8525D /* GradientView.swift in Sources */,
 				526A726A2660D5A700B11792 /* ViewModifiers.swift in Sources */,
 				5205F518265FC553007CEBAD /* CalculatorButtonView.swift in Sources */,
 				522ECDAA2667B41900F69884 /* RewardingMomentumView.swift in Sources */,
@@ -400,6 +407,7 @@
 				522ECDA5266641C400F69884 /* RubberbandingView.swift in Sources */,
 				5205F501265FC1E5007CEBAD /* ContentView.swift in Sources */,
 				522ECD932664FE1200F69884 /* FlashlightButtonView.swift in Sources */,
+				525024ED27159F0400B8525D /* GradientView.swift in Sources */,
 				526A726B2660D5A700B11792 /* ViewModifiers.swift in Sources */,
 				5205F519265FC553007CEBAD /* CalculatorButtonView.swift in Sources */,
 				522ECDAB2667B41900F69884 /* RewardingMomentumView.swift in Sources */,
@@ -443,6 +451,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -502,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -601,6 +611,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GTL29ANKNP;
@@ -625,6 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GTL29ANKNP;

@@ -13,12 +13,14 @@ import SwiftUI
 struct FullScreenBlackBackgroundIgnoresSafeArea: ViewModifier {
   func body(content: Content) -> some View {
     content
+    #if os(iOS)
       .frame(
         width: .fullScreenWidth,
         height: .fullScreenHeight,
         alignment: .center
       )
-      .background(Color.black)
+    #endif
+    .background(Color.black)
       .ignoresSafeArea()
   }
 }

@@ -133,11 +133,13 @@ struct AccelerationPausingView: View {
       }
       .animation(nil)
       .padding()
-      .frame(
-        width: .fullScreenWidth,
-        height: .fullScreenWidth,
-        alignment: .center
-      )
+      #if os(iOS)
+        .frame(
+          width: .fullScreenWidth,
+          height: .fullScreenWidth,
+          alignment: .center
+        )
+      #endif
     }
   }
 
@@ -149,7 +151,7 @@ struct AccelerationPausingView: View {
   /// The array of past velocities.
   @State private var velocities = [CGFloat]()
 
-  @State private var hasPaused: Bool = false
+  @State private var hasPaused = false
 
   /// The current veloctiy of drag gesture.
   ///

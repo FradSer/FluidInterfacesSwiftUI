@@ -13,10 +13,12 @@ public extension View {
   }
 }
 
-public extension CGFloat {
-  static let fullScreenWidth = UIScreen.main.bounds.width
-  static let fullScreenHeight = UIScreen.main.bounds.height
-}
+#if os(iOS)
+  public extension CGFloat {
+    static let fullScreenWidth = UIScreen.main.bounds.width
+    static let fullScreenHeight = UIScreen.main.bounds.height
+  }
+#endif
 
 /// Colors of buttons.
 public extension Color {

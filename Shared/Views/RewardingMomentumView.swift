@@ -67,7 +67,7 @@ struct RewardingMomentumView: View {
 
   // MARK: Private
 
-  @State private var isActived: Bool = false
+  @State private var isActived = false
 
   @State private var currentPositionY: CGFloat = .fullScreenHeight * 0.68
   @State private var newPositionY: CGFloat = .zero

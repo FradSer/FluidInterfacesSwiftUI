@@ -41,13 +41,14 @@ struct ContentView: View {
           .padding(.vertical)
         }
       }
-      .listStyle(InsetGroupedListStyle())
       .navigationTitle("Fluid Interfaces")
     }
   }
+}
 
-  // TODO: Create a view model with this function
-  @ViewBuilder func destinationView(_ destination: String) -> some View {
+extension ContentView {
+  @ViewBuilder
+  private func destinationView(_ destination: String) -> some View {
     switch destination {
     case "Calculator Button":
       CalculatorButtonView()
