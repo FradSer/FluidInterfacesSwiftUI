@@ -82,7 +82,6 @@
 		525024EB27159F0400B8525D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		526A72692660D5A700B11792 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		526A726C2660D66300B11792 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		52BEF015266E13A600A946C8 /* RotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RotationView.swift; path = Views/RotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +198,6 @@
 				522ECDA62667676000F69884 /* AccelerationPausingView.swift */,
 				522ECDA92667B41900F69884 /* RewardingMomentumView.swift */,
 				522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */,
-				52BEF015266E13A600A946C8 /* RotationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
