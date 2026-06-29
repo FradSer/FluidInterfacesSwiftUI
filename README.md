@@ -4,6 +4,8 @@
 
 SwiftUI sample code for Apple's WWDC18 talk "[Designing Fluid Interfaces](https://developer.apple.com/wwdc18/803)".
 
+> Rebuilt with **iOS 26 / SwiftUI 26** APIs: Liquid Glass (`glassEffect`, `GlassEffectContainer`), `Spring` presets + `phaseAnimator`, `contentTransition(.numericText())`, `.sensoryFeedback`, `matchedGeometryEffect`, `MeshGradient`, and type-driven `NavigationStack` routing. Targets **iOS/iPadOS, macOS, visionOS, and tvOS** (26.0), Swift 6.
+
 ![](Docs/cover.png)
 
 

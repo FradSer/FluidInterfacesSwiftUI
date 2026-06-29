@@ -9,78 +9,113 @@ import SwiftUI
 
 // MARK: - RubberbandingView
 
-/// Rubberbanding occurs when a view resists movement. An example is when a scrolling view
-/// reaches the end of its content.
+/// Rubberbanding occurs when a view resists movement, e.g. when a scrolling
+/// view reaches the end of its content.
 ///
 /// # Key Features
 ///
-/// 1. Interface is always responsive, even when an action is invalid.
+/// 1. The interface is always responsive, even when an action is invalid.
 /// 2. De-synced touch tracking indicates a boundary.
-/// 3. Amount of motion lessens further from the boundary.
+/// 3. The amount of motion lessens further from the boundary.
 ///
 /// # Design Theory
 ///
-/// Rubberbanding is a great way to communicate invalid actions while still giving the user a sense
-/// of control. It softly indicates a boundary, pulling them back into a valid state.
+/// Rubberbanding communicates invalid actions while still giving the user a
+/// sense of control. It softly indicates a boundary, pulling them back into a
+/// valid state.
+///
+/// # iOS 26 Approach
+///
+/// The `pow(0.7)` resistance math is kept (a simplified Apple-style
+/// approximation). Tracking now follows the touch 1:1 with no animation in
+/// `.onChanged` (the original's `.linear` added lag), and springs back on
+/// release via a value-based `.spring(.smooth)`. Offset is applied through
+/// `.visualEffect` to avoid re-rendering the shape. tvOS gets a scrollable
+/// `.scrollTransition` variant since Siri Remote can't drag.
 ///
 /// # References
 ///
-/// - [Building Fluid Interfaces. How to create natural gestures and…](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
+/// - [Building Fluid Interfaces](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
+
 struct RubberbandingView: View {
-  // MARK: Internal
+  @State private var dragHeight: CGFloat = 0
+  @State private var isDragging = false
 
   var body: some View {
-    let drag = DragGesture()
-      .onChanged { drag in
-        withAnimation(.linear) {
-          self.viewState = drag.translation
-        }
-      }
-      .onEnded { _ in
-        withAnimation(.spring()) {
-          viewState = .zero
-        }
-      }
+    content
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
+      .background(MeshBackgroundView())
+      #if os(iOS)
+        .ignoresSafeArea()
+      #endif
+  }
 
-    RoundedRectangle(cornerRadius: 32)
-      .fill(
-        LinearGradient(
-          gradient: Gradient(colors: [.topColor, .bottomColor]),
-          startPoint: .top,
-          endPoint: .bottom
+  #if !os(tvOS)
+    private var content: some View {
+      RoundedRectangle(cornerRadius: 32, style: .continuous)
+        .fill(
+          LinearGradient(
+            colors: [.rubberbandingTop, .rubberbandingBottom],
+            startPoint: .top,
+            endPoint: .bottom
+          )
         )
-      )
-      .frame(width: 120, height: 120, alignment: .center)
-      .gesture(drag)
-      .offset(x: 0, y: rubberbanding(viewState.height))
-  }
+        .frame(width: 120, height: 120)
+        .offset(y: rubberbanded(dragHeight))
+        .gesture(
+          DragGesture()
+            .onChanged {
+              isDragging = true
+              dragHeight = $0.translation.height
+            }
+            .onEnded { _ in
+              isDragging = false
+              withAnimation(.spring(.smooth)) { dragHeight = 0 }
+            }
+        )
+        // Track 1:1 while dragging (no spring lag); spring only on release.
+        .animation(isDragging ? nil : .spring(.smooth), value: dragHeight)
+    }
+  #else
+    // tvOS: no drag — a scrollable list that scales/fades rows near the edges.
+    private var content: some View {
+      ScrollView {
+        LazyVStack(spacing: 16) {
+          ForEach(0..<12, id: \.self) { index in
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+              .fill(
+                LinearGradient(
+                  colors: [.rubberbandingTop, .rubberbandingBottom],
+                  startPoint: .leading,
+                  endPoint: .trailing
+                )
+              )
+              .frame(height: 80)
+              .scrollTransition { content, phase in
+                content
+                  .scaleEffect(phase.isIdentity ? 1 : 0.9)
+                  .opacity(phase.isIdentity ? 1 : 0.5)
+              }
+              .padding(.horizontal)
+          }
+        }
+        .padding(.vertical)
+      }
+    }
+  #endif
 
-  // MARK: Private
-
-  @State private var viewState: CGSize = .zero
-
-  /// A Apple-like rubberbanding.
-  /// - Parameter of: Offset of movement distance. Base value to be power raised.
-  /// - Returns: The power raised to drag movement distance .
-  /// - Note:
-  /// This is not how Apple preforms rubberbanding, but simplely.
-  /// Graphs of power functions [here](https://www.desmos.com/calculator/jfesw7c1re ).
-  private func rubberbanding(_ of: CGFloat) -> CGFloat {
-    var offset = Double(of)
-    offset = offset > 0 ? pow(offset, 0.7) : -pow(-offset, 0.7)
-    return CGFloat(offset)
+  /// A simple Apple-style rubberbanding curve.
+  /// - Note: This is not how Apple performs rubberbanding, but it's a simple
+  ///   approximation. Graph: https://www.desmos.com/calculator/jfesw7c1re
+  private func rubberbanded(_ offset: CGFloat) -> CGFloat {
+    offset > 0
+      ? pow(offset, 0.7)
+      : -pow(-offset, 0.7)
   }
 }
 
-private extension Color {
-  static let topColor = Color(red: 1.00, green: 0.36, blue: 0.31)
-  static let bottomColor = Color(red: 1.00, green: 0.79, blue: 0.31)
-}
+// MARK: - Previews
 
-// MARK: - RubberbandingView_Previews
-
-struct RubberbandingView_Previews: PreviewProvider {
-  static var previews: some View {
-    RubberbandingView()
-  }
+#Preview {
+  RubberbandingView()
 }

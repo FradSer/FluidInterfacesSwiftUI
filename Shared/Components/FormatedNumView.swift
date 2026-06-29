@@ -9,21 +9,31 @@ import SwiftUI
 
 // MARK: - FormatedNumView
 
-/// A `Text` returns with formated number (`CGFloat`).
+/// A `Text` showing a formatted `CGFloat`, with an animated digit roll on change.
+///
+/// The original used `.animation(nil)` to suppress jitter. With
+/// `contentTransition(.numericText())` the value now rolls smoothly, gated by a
+/// value-based `.animation(_:value:)`.
 struct FormatedNumView: View {
   @Binding var num: CGFloat
 
   var body: some View {
     Text("\(num, specifier: "%.2f")")
       .font(.system(.body).monospacedDigit().bold())
-      .animation(nil)
+      .contentTransition(.numericText(value: num))
+      .animation(.smooth, value: num)
   }
 }
 
-// MARK: - FormatedNumView_Previews
+// MARK: - Previews
 
-struct FormatedNumView_Previews: PreviewProvider {
-  static var previews: some View {
-    FormatedNumView(num: .constant(89.64))
+#Preview {
+  @Previewable @State var num: CGFloat = 89.64
+  return VStack {
+    FormatedNumView(num: $num)
+    Button("Randomize") {
+      num = CGFloat.random(in: 0...100)
+    }
   }
+  .padding()
 }

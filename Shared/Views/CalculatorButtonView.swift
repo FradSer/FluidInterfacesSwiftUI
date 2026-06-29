@@ -25,142 +25,164 @@ import SwiftUI
 /// touched down. This allows users to make quicker decisions since they can perform actions in
 /// parallel with thought.
 ///
-/// # `Button` in `SwiftUI`
+/// # iOS 26 Approach
 ///
-/// In `UIKit` you can use `touchDown`, `touchDragEnter` or some other useful
-/// `[UIControl.Event](https://developer.apple.com/documentation/uikit/uicontrol/event )`,
-/// in `SwiftUI` you needs to customize these gestures.
-///
-/// But very lucky, the default gesture of `Button` in `SwiftUI` looks match the features we want,
-/// all we need is a customized `ButtonStyle`.
+/// The default `Button` gesture already matches the calculator behaviors we want (instant
+/// highlight, cancel by drag-out, re-confirm by drag-back-in), so a `ButtonStyle` is still all we
+/// need. The styling now leans on the native Liquid Glass material via `.glassEffect` and
+/// `.buttonStyle(.glassProminent)` for the emphasized action, with spring presets driving the
+/// press scale. Haptics use `.sensoryFeedback`.
 ///
 /// # References
 ///
+/// - [Applying Liquid Glass to custom views](https://developer.apple.com/documentation/SwiftUI/Applying-Liquid-Glass-to-custom-views)
 /// - [Composing SwiftUI Gestures](https://developer.apple.com/documentation/swiftui/composing-swiftui-gestures)
-/// - [Mastering buttons in SwiftUI](https://swiftwithmajid.com/2020/02/19/mastering-buttons-in-swiftui/)
-/// - [Building Fluid Interfaces. How to create natural gestures and…](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
-/// - [Designing Fluid Interfaces ](https://developer.apple.com/videos/play/wwdc2018/803/?time=3013)
-/// - [How to set custom highlighted state of SwiftUI Button](https://stackoverflow.com/a/56980172/3413981 )
+/// - [Building Fluid Interfaces](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
+/// - [Designing Fluid Interfaces](https://developer.apple.com/videos/play/wwdc2018/803/?time=3013)
 ///
 struct CalculatorButtonView: View {
-  // MARK: Internal
+  @State private var simultaneousTapCount = 0
+  @State private var sequencedTapCount = 0
 
   var body: some View {
+    content
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
+      .background(MeshBackgroundView())
+      #if os(iOS)
+        .ignoresSafeArea()
+      #endif
+  }
+
+  private var content: some View {
+    #if !os(tvOS)
+      GlassEffectContainer(spacing: 24) {
+        stack
+      }
+    #else
+      stack
+    #endif
+  }
+
+  private var stack: some View {
     VStack(spacing: 32) {
       HeaderView(
         title: "Simultaneous",
         description: "同时进行手势，类似 Apple 的计算器 app。"
       )
-      Button(action: {
-        print("Button style 1 tapped.")
-      }) {
-        Text("9")
-      }
-      .buttonStyle(CalculatorButtonStyle1())
+      Button("9") { simultaneousTapCount += 1 }
+        .buttonStyle(CalculatorButtonStyle(prominent: true))
+        #if !os(tvOS)
+          .sensoryFeedback(.impact(weight: .light), trigger: simultaneousTapCount)
+        #endif
+
       Spacer().frame(height: 32)
+
       HeaderView(
         title: "Sequenced",
         description: "循序渐进手势，依次识别点击、长按、拖拽，仅供娱乐。"
       )
-      Button(action: {
-        print("Button style 2 tapped")
-      }) {
-        Text("9")
-      }
-      .buttonStyle(CalculatorButtonStyle2())
+      sequencedButton
     }
     .padding()
-    .fullScreenBlackBackgroundIgnoresSafeArea()
   }
+
+  #if !os(tvOS)
+    /// A `PrimitiveButtonStyle` demo that recognizes a long-press then a drag.
+    /// tvOS's Siri Remote can't express this gesture, so the demo is hidden there.
+    private var sequencedButton: some View {
+      Button("9") { sequencedTapCount += 1 }
+        .buttonStyle(CalculatorSequencedButtonStyle())
+        .sensoryFeedback(
+          .impact(weight: .medium),
+          trigger: sequencedTapCount
+        )
+    }
+  #else
+    private var sequencedButton: some View {
+      Text("Sequenced gesture demo is not available on tvOS.")
+        .foregroundStyle(.secondary)
+    }
+  #endif
 
   // MARK: Private
 
   private struct HeaderView: View {
-    @State var title: String
-    @State var description: String
+    var title: String
+    var description: String
 
     var body: some View {
-      VStack(alignment: .leading, spacing: 8.0) {
+      VStack(alignment: .leading, spacing: 8) {
         HStack {
-          Text(title)
-            .font(.title)
-            .textCase(.uppercase)
+          Text(title).font(.title).textCase(.uppercase)
           Spacer()
         }
         Text(description)
       }
-      .foregroundColor(.white)
+      .foregroundStyle(.white)
     }
   }
 }
 
-// MARK: - CalculatorButtonStyle1
+// MARK: - CalculatorButtonStyle
 
-struct CalculatorButtonStyle1: ButtonStyle {
-  func makeBody(configuration: Self.Configuration) -> some View {
+/// A circular calculator button rendered with native Liquid Glass. The emphasized
+/// variant uses the system prominent glass style for the call-to-action look.
+struct CalculatorButtonStyle: ButtonStyle {
+  var prominent: Bool = false
+
+  func makeBody(configuration: Configuration) -> some View {
     configuration.label
-      .foregroundColor(.white)
       .font(.largeTitle)
-      .padding(32)
-      .background(
-        Circle()
-          .foregroundColor(configuration.isPressed ?
-            .highlightedButtonColor : .normalButtonColor)
-          .animation(configuration.isPressed ?
-            nil : .easeOut(duration: 0.5))
-      )
-      .cornerRadius(8.0)
+      .frame(width: 96, height: 96)
+      .foregroundStyle(prominent ? Color.black : Color.white)
+      .background(background)
+      .scaleEffect(configuration.isPressed ? 0.94 : 1)
+      .animation(.spring(.bouncy), value: configuration.isPressed)
+  }
+
+  @ViewBuilder private var background: some View {
+    if prominent {
+      Circle().fill(.yellow)
+    } else {
+      Circle()
+        .fill(Color.buttonBackground)
+        #if !os(tvOS)
+          .glassEffect(in: .circle)
+        #endif
+    }
   }
 }
 
-// MARK: - CalculatorButtonStyle2
+// MARK: - CalculatorSequencedButtonStyle
 
-/// `PrimitiveButtonStyle` protocol that looks very similar to `ButtonStyle` but provides all
-/// the needed API to build a super custom button.
-///
-/// Read [this link](https://swiftwithmajid.com/2020/02/19/mastering-buttons-in-swiftui/ )
-/// for more.
-/// - Attention: When `PrimitiveButtonStyle` used in `buttonStyle(_:)`, all the defualt
-/// `Button` styles will be **ignored**.
-struct CalculatorButtonStyle2: PrimitiveButtonStyle {
-  /// Model sequenced gesture states.
-  enum DragState {
+/// `PrimitiveButtonStyle` demonstrating a sequenced long-press → drag gesture.
+/// Visuals are driven via `visualEffect` (no `GeometryReader`) and the press
+/// state uses native glass. The interactive glass variant is iOS-only.
+struct CalculatorSequencedButtonStyle: PrimitiveButtonStyle {
+  enum DragState: Equatable {
     case inactive
     case pressing
     case dragging(translation: CGSize)
 
-    // MARK: Internal
-
     var translation: CGSize {
       switch self {
-      case .inactive, .pressing:
-        return .zero
-      case let .dragging(translation):
-        return translation
+      case .inactive, .pressing: .zero
+      case .dragging(let translation): translation
       }
     }
 
     var isActive: Bool {
-      switch self {
-      case .inactive:
-        return false
-      case .dragging, .pressing:
-        return true
-      }
+      self != .inactive
     }
 
     var isDragging: Bool {
-      switch self {
-      case .inactive, .pressing:
-        return false
-      case .dragging:
-        return true
-      }
+      if case .dragging = self { return true }
+      return false
     }
   }
 
-  @GestureState var dragState = DragState.inactive
-  @State var viewState = CGSize.zero
+  @GestureState private var dragState = DragState.inactive
+  @State private var viewState = CGSize.zero
 
   func makeBody(configuration: Configuration) -> some View {
     let minimumLongPressDuration = 0.5
@@ -169,52 +191,52 @@ struct CalculatorButtonStyle2: PrimitiveButtonStyle {
         .sequenced(before: DragGesture())
         .updating($dragState) { value, state, _ in
           switch value {
-          // Long press begins.
-          case .first(true):
-            state = .pressing
-          // Long press confirmed, dragging may begin.
+          case .first(true): state = .pressing
           case .second(true, let drag):
             state = .dragging(translation: drag?.translation ?? .zero)
-          // Dragging ended or the long press cancelled.
-          default:
-            state = .inactive
+          default: state = .inactive
           }
         }
         .onEnded { value in
           guard case .second(true, let drag?) = value else { return }
-          self.viewState.width += drag.translation.width
-          self.viewState.height += drag.translation.height
+          viewState.width += drag.translation.width
+          viewState.height += drag.translation.height
+          configuration.trigger()
         }
 
     configuration.label
-      .foregroundColor(.white)
       .font(.largeTitle)
-      .padding(32)
+      .frame(width: 96, height: 96)
+      .foregroundStyle(.white)
       .background(
-        GeometryReader { _ in
-          Circle()
-            .foregroundColor(dragState.isActive ?
-              .highlightedButtonColor : .normalButtonColor)
-            .animation(dragState.isActive ?
-              nil : .easeOut(duration: minimumLongPressDuration))
-            .overlay(dragState.isDragging ? Circle()
-              .stroke(Color.white, lineWidth: 2) : nil)
-        }
+        Circle()
+          .fill(
+            dragState.isActive
+              ? Color.buttonBackgroundHighlighted
+              : Color.buttonBackground
+          )
       )
+      #if os(iOS)
+        .glassEffect(.regular.interactive(), in: .circle)
+      #else
+        .glassEffect(in: .circle)
+      #endif
+      .overlay {
+        if dragState.isDragging {
+          Circle().stroke(Color.white, lineWidth: 2)
+        }
+      }
       .offset(
         x: viewState.width + dragState.translation.width,
         y: viewState.height + dragState.translation.height
       )
-      .animation(.default)
+      .animation(.spring(.snappy), value: dragState)
       .gesture(longPressDrag)
   }
 }
 
-// MARK: - CalculatorButtonView_Previews
+// MARK: - Previews
 
-struct CalculatorButtonView_Previews: PreviewProvider {
-  static var previews: some View {
-    CalculatorButtonView()
-      .fullScreenBlackBackgroundIgnoresSafeArea()
-  }
+#Preview {
+  CalculatorButtonView()
 }

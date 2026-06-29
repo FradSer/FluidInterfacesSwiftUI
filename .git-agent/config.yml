@@ -1,0 +1,11 @@
+scopes:
+    - name: xcode
+      description: Project configuration, workspace settings, and build files in FluidInterfacesSwiftUI.xcodeproj/; covers build setup only, not source code
+    - name: shared
+      description: Cross-platform app views, extensions, view modifiers, assets, and components in Shared/; includes UI views like SpringAnimationsView, RubberbandingView, CalculatorButtonView, but not platform-specific configs or test targets
+    - name: tests
+      description: Unit tests and test target Info.plist for iOS and macOS in Tests iOS/ and Tests macOS/; does not cover app source code
+    - name: ios
+      description: iOS-specific configuration and Info.plist in iOS/; does not cover shared cross-platform views or macOS/tvOS/visionOS targets
+    - name: macos
+      description: macOS-specific configuration, Info.plist, and entitlements in macOS/; does not cover shared views or other platform targets

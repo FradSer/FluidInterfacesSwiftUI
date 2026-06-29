@@ -9,7 +9,8 @@ import SwiftUI
 
 // MARK: - RewardingMomentumView
 
-/// A drawer with open and closed states that has bounciness based on the velocity of the gesture.
+/// A drawer with open/closed states whose bounciness follows the gesture's
+/// velocity.
 ///
 /// # Key Features
 ///
@@ -19,116 +20,133 @@ import SwiftUI
 ///
 /// # Design Theory
 ///
-/// This drawer shows the concept of rewarding momentum. When the user swipes a view with
-/// velocity, it’s much more satisfying to animate the view with bounciness. This makes the interface
-/// feel alive and fun.
+/// This drawer shows the concept of rewarding momentum: swiping a view with
+/// velocity is more satisfying when the animation carries that momentum with
+/// bounce. A tap has no momentum, so it animates without bounce — different
+/// interactions deserve different animations.
 ///
-/// When the drawer is tapped, it animates without bounciness, which feels appropriate, since a tap
-/// has no momentum in a particular direction.
+/// # iOS 26 Approach
 ///
-/// When designing custom interactions, it’s important to remember that interfaces can have
-/// different animations for different interactions.
+/// Drawer positions are derived from a `containerRelativeFrame`-sized layout
+/// instead of `UIScreen.main`. The drag's end chooses a spring by velocity
+/// (`.bouncy` for a flick, `.smooth` for a tap) and drives it through a
+/// value-based `.spring(_:value:)`, which carries velocity across the
+/// interruption — the core of "rewarding momentum". The drawer is styled with
+/// native Liquid Glass.
 ///
 /// # References
 ///
-/// - [Building Fluid Interfaces. How to create natural gestures and…](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
+/// - [Building Fluid Interfaces](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
+
 struct RewardingMomentumView: View {
-  // MARK: Internal
+  @State private var isOpen = false
+  @State private var dragOffset: CGFloat = 0
 
   var body: some View {
-    let tap = TapGesture()
-      .onEnded {
-        togglePositionY()
-        withAnimation(.default) { self.currentPositionY = self.newPositionY }
-      }
-    let drag = DragGesture()
-      .onChanged { value in
-        withAnimation(.default) {
-          self.currentPositionY =
-            value.translation.height + self.newPositionY
+    content
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
+      .background(MeshBackgroundView())
+      #if os(iOS)
+        .ignoresSafeArea()
+      #endif
+  }
+
+  #if !os(tvOS)
+    private var content: some View {
+      GeometryReader { geometry in
+        let closedY = geometry.size.height * 0.68
+        let openY = geometry.size.height * 0.1
+        let targetY = isOpen ? openY : closedY
+
+        ZStack(alignment: .bottom) {
+          RoundedRectangle(cornerRadius: 32, style: .continuous)
+            .fill(
+              LinearGradient(
+                colors: [.momentumTop, .momentumBottom],
+                startPoint: .top,
+                endPoint: .bottom
+              )
+            )
+            #if !os(tvOS)
+              .glassEffect(.regular, in: .rect(cornerRadius: 32))
+            #endif
+            .overlay(alignment: .top) {
+              Capsule()
+                .fill(.primary)
+                .opacity(0.5)
+                .frame(width: 64, height: 8)
+                .padding(.top, 12)
+            }
+            .frame(height: geometry.size.height - openY)
+            .offset(y: targetY + dragOffset)
+            .gesture(
+              DragGesture()
+                .onChanged { dragOffset = $0.translation.height }
+                .onEnded { value in
+                  let velocity = value.predictedEndLocation.y - value.location.y
+                  let translation = value.translation.height
+                  // A flick carries momentum → animate with bounce; a tap (no
+                  // momentum) → smooth. The chosen spring drives the whole motion
+                  // (drawer repositioning + residual drag offset settling together).
+                  let spring: Spring = abs(velocity) > 200
+                    ? .bouncy
+                    : .smooth
+                  withAnimation(.spring(spring)) {
+                    if abs(velocity) > 200 {
+                      isOpen = translation < 0
+                    } else if abs(translation) > 100 {
+                      isOpen.toggle()
+                    }
+                    dragOffset = 0
+                  }
+                }
+            )
+            .animation(.spring(.smooth), value: isOpen)
+
+          debugView(y: targetY + dragOffset)
         }
       }
-      .onEnded { value in
-        let offsetY = value.translation.height
-        if offsetY > 100 { isActived = true } else { isActived = false }
-
-        togglePositionY()
-        withAnimation(.spring()) { self.currentPositionY = self.newPositionY }
-      }
-
-    ZStack {
-      heroView
-        .gesture(drag)
-        .gesture(tap)
-
-      debugView
     }
-  }
+  #else
+    // tvOS: no drag/momentum; a focused button toggles the drawer with a smooth spring.
+    private var content: some View {
+      GeometryReader { geometry in
+        let closedY = geometry.size.height * 0.68
+        let openY = geometry.size.height * 0.1
+        let targetY = isOpen ? openY : closedY
+        ZStack(alignment: .bottom) {
+          RoundedRectangle(cornerRadius: 32, style: .continuous)
+            .fill(LinearGradient(colors: [.momentumTop, .momentumBottom], startPoint: .top, endPoint: .bottom))
+            .frame(height: geometry.size.height - openY)
+            .offset(y: targetY)
+            .animation(.spring(.smooth), value: isOpen)
+          Button(isOpen ? "Close" : "Open") { withAnimation(.spring(.smooth)) { isOpen.toggle() } }
+            .padding()
+        }
+      }
+    }
+  #endif
 
   // MARK: Private
 
-  @State private var isActived = false
-
-  @State private var currentPositionY: CGFloat = .fullScreenHeight * 0.68
-  @State private var newPositionY: CGFloat = .zero
-
-  private func togglePositionY() {
-    isActived.toggle()
-    newPositionY = isActived ?
-      .fullScreenHeight * 0.1 : .fullScreenHeight * 0.68
-  }
-}
-
-extension RewardingMomentumView {
-  private var heroView: some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 32)
-        .fill(
-          LinearGradient(
-            gradient: Gradient(colors: [.topColor, .bottomColor]),
-            startPoint: .top,
-            endPoint: .bottom
-          )
-        )
-      VStack {
-        RoundedRectangle(cornerRadius: 4)
-          .frame(width: 64, height: 8, alignment: .center)
-          .foregroundColor(.white.opacity(0.7))
-          .padding()
-        Spacer()
-      }
-    }
-    .offset(y: currentPositionY)
-  }
-
-  private var debugView: some View {
+  private func debugView(y: CGFloat) -> some View {
     VStack {
       Spacer()
       HStack(spacing: 32) {
         Text("Current Position:").textCase(.uppercase)
         Spacer()
-        FormatedNumView(num: $currentPositionY)
+        FormatedNumView(num: Binding(get: { y }, set: { _ in }))
       }
+      .foregroundStyle(.white)
       .padding()
-      .background(
-        RoundedRectangle(cornerRadius: 8)
-          .fill(Color.white.opacity(0.7))
-      )
+      .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+      .padding()
     }
-    .offset(y: 16.0)
-    .padding()
   }
 }
 
-private extension Color {
-  static let topColor = Color(red: 0.38, green: 0.66, blue: 1.00)
-  static let bottomColor = Color(red: 0.14, green: 0.23, blue: 0.82)
-}
+// MARK: - Previews
 
-// MARK: - RewardingMomentumView_Previews
-
-struct RewardingMomentumView_Previews: PreviewProvider {
-  static var previews: some View {
-    RewardingMomentumView()
-  }
+#Preview {
+  RewardingMomentumView()
 }

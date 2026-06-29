@@ -9,18 +9,19 @@ import SwiftUI
 
 // MARK: - BackgroundViewModifier
 
-/// A black background which ignores safe area.
+/// A full-bleed black background that fills the available space on every platform.
+///
+/// The original pinned the frame to `UIScreen.main.bounds`, which is deprecated,
+/// wrong in multi-window/multi-display setups, and meaningless on macOS, tvOS
+/// and visionOS. Filling the offered space with `maxWidth`/`maxHeight` works
+/// everywhere and respects the safe area only where it exists (iOS).
 struct FullScreenBlackBackgroundIgnoresSafeArea: ViewModifier {
   func body(content: Content) -> some View {
     content
-    #if os(iOS)
-      .frame(
-        width: .fullScreenWidth,
-        height: .fullScreenHeight,
-        alignment: .center
-      )
-    #endif
-    .background(Color.black)
-      .ignoresSafeArea()
+      .frame(maxWidth: .infinity, maxHeight: .infinity)
+      .background(Color.black)
+      #if os(iOS)
+        .ignoresSafeArea()
+      #endif
   }
 }
