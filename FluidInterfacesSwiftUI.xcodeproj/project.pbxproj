@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01B14B85383457BCCE87A686 /* AccelerationPausingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA62667676000F69884 /* AccelerationPausingView.swift */; };
+		17B6B6E9904AF9FE05D4762A /* FaceTimePiPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */; };
+		2125DBCEBC52E48684081264 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4D6265FC1E3007CEBAD /* ContentView.swift */; };
+		289B76BFF1072B0C5FBB925C /* RewardingMomentumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA92667B41900F69884 /* RewardingMomentumView.swift */; };
+		2DB1400F88DD23D80948F05D /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD912664FE1200F69884 /* FlashlightButtonView.swift */; };
+		338A36BE20634AF466D97354 /* CalculatorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F517265FC553007CEBAD /* CalculatorButtonView.swift */; };
+		41031AF9CBDFB30D2973FC54 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
+		46649FE93BE349B2BDDA749E /* FluidInterfacesSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4D5265FC1E3007CEBAD /* FluidInterfacesSwiftUIApp.swift */; };
+		4AEC605DC6F789A4C68AADDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5205F4D7265FC1E5007CEBAD /* Assets.xcassets */; };
 		5205F4F1265FC1E5007CEBAD /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4F0265FC1E5007CEBAD /* Tests_iOS.swift */; };
 		5205F4FC265FC1E5007CEBAD /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4FB265FC1E5007CEBAD /* Tests_macOS.swift */; };
 		5205F4FE265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4D5265FC1E3007CEBAD /* FluidInterfacesSwiftUIApp.swift */; };
@@ -37,6 +46,27 @@
 		526A726B2660D5A700B11792 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
 		526A726D2660D66300B11792 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
 		526A726E2660D66300B11792 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
+		530108B0A40B20BC75427494 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D951F6F8253AE22CC68336B /* Foundation.framework */; };
+		56C683B695B41E6DA6FCE246 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
+		6C638A75614F4D0EC8CBBF0F /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD912664FE1200F69884 /* FlashlightButtonView.swift */; };
+		6F26D7EA9F8E95DD718B726C /* AccelerationPausingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA62667676000F69884 /* AccelerationPausingView.swift */; };
+		72A4ED7FFADB014830EB81C0 /* RubberbandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA3266641C400F69884 /* RubberbandingView.swift */; };
+		7601DD39F8B4F199F51F3826 /* FluidInterfacesSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4D5265FC1E3007CEBAD /* FluidInterfacesSwiftUIApp.swift */; };
+		7A967138D112AC4A0C8E8E1E /* FormatedNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB02668B9A100F69884 /* FormatedNumView.swift */; };
+		7B30AEA67BCD72E6A2DD254C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
+		8E83EDD6FF401C649C495E04 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
+		97A893B5F4738C901FA199F8 /* FaceTimePiPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB62668BD8500F69884 /* FaceTimePiPView.swift */; };
+		AA25E62573DD094048BAF442 /* RewardingMomentumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA92667B41900F69884 /* RewardingMomentumView.swift */; };
+		BB04E98BFAB1F23595AAAD66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F4D6265FC1E3007CEBAD /* ContentView.swift */; };
+		BB73B485C21C91BAAF04135F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525024EB27159F0400B8525D /* GradientView.swift */; };
+		BE0B8034718FC2C19FA9B976 /* RubberbandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA3266641C400F69884 /* RubberbandingView.swift */; };
+		DBE5354067B8C16267E43E7D /* CalculatorButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5205F517265FC553007CEBAD /* CalculatorButtonView.swift */; };
+		DED74B4E0C86C333C1B3B237 /* SpringAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD942664FE2F00F69884 /* SpringAnimationsView.swift */; };
+		E1E7D07025E8F9D6ADF67974 /* FormatedNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDB02668B9A100F69884 /* FormatedNumView.swift */; };
+		EDB6F0AC0AD20ECFAA7ED031 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF5177C7C6901453F77AE186 /* Foundation.framework */; };
+		EEE5E3C8DF68426F12C63088 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5205F4D7265FC1E5007CEBAD /* Assets.xcassets */; };
+		FAD7210E4AA156E8379349EA /* SpringAnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD942664FE2F00F69884 /* SpringAnimationsView.swift */; };
+		FD204B4CDE3624676BE1214E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525024EB27159F0400B8525D /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		338B6C612D9644F6CF9D1394 /* FluidInterfacesSwiftUI (visionOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FluidInterfacesSwiftUI (visionOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5205F4D5265FC1E3007CEBAD /* FluidInterfacesSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FluidInterfacesSwiftUIApp.swift; sourceTree = "<group>"; };
 		5205F4D6265FC1E3007CEBAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5205F4D7265FC1E5007CEBAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,9 +113,22 @@
 		525024EB27159F0400B8525D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		526A72692660D5A700B11792 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		526A726C2660D66300B11792 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6D951F6F8253AE22CC68336B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9595F1F8E340B532BB23901B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1529CCD330FA157AEA105CE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6BCD54164961437D6034643 /* FluidInterfacesSwiftUI (tvOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FluidInterfacesSwiftUI (tvOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF5177C7C6901453F77AE186 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/XROS.platform/Developer/SDKs/XROS2.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0C64AF1D9950294EFF854CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB6F0AC0AD20ECFAA7ED031 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5205F4D9265FC1E5007CEBAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -113,9 +157,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B399A49A185C56E13AC2E8F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				530108B0A40B20BC75427494 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3ECD50E66FA06BDFAE7C3B65 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				6D951F6F8253AE22CC68336B /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		48A661F9C8640F01D79E07C9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F5EF818413AF314CE1848ED /* visionOS */,
+				3ECD50E66FA06BDFAE7C3B65 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F5EF818413AF314CE1848ED /* visionOS */ = {
+			isa = PBXGroup;
+			children = (
+				FF5177C7C6901453F77AE186 /* Foundation.framework */,
+			);
+			name = visionOS;
+			sourceTree = "<group>";
+		};
 		5205F4CF265FC1E3007CEBAD = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +202,9 @@
 				5205F4EF265FC1E5007CEBAD /* Tests iOS */,
 				5205F4FA265FC1E5007CEBAD /* Tests macOS */,
 				5205F4DD265FC1E5007CEBAD /* Products */,
+				48A661F9C8640F01D79E07C9 /* Frameworks */,
+				7CE040B21710E0BCF6F8F336 /* visionOS */,
+				F6360871232FFAF4DAE0DE5E /* tvOS */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +229,8 @@
 				5205F4E4265FC1E5007CEBAD /* FluidInterfacesSwiftUI.app */,
 				5205F4EC265FC1E5007CEBAD /* Tests iOS.xctest */,
 				5205F4F7265FC1E5007CEBAD /* Tests macOS.xctest */,
+				338B6C612D9644F6CF9D1394 /* FluidInterfacesSwiftUI (visionOS).app */,
+				D6BCD54164961437D6034643 /* FluidInterfacesSwiftUI (tvOS).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,6 +299,24 @@
 				526A72692660D5A700B11792 /* ViewModifiers.swift */,
 			);
 			name = Styles;
+			sourceTree = "<group>";
+		};
+		7CE040B21710E0BCF6F8F336 /* visionOS */ = {
+			isa = PBXGroup;
+			children = (
+				A1529CCD330FA157AEA105CE /* Info.plist */,
+			);
+			name = visionOS;
+			path = visionOS;
+			sourceTree = "<group>";
+		};
+		F6360871232FFAF4DAE0DE5E /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				9595F1F8E340B532BB23901B /* Info.plist */,
+			);
+			name = tvOS;
+			path = tvOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +392,40 @@
 			productReference = 5205F4F7265FC1E5007CEBAD /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7096AF8DB9C69F5CDA02F9D2 /* FluidInterfacesSwiftUI (tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE9D2A1CAE00A99C3734538C /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (tvOS)" */;
+			buildPhases = (
+				1B2CAA0E798D7F7886F7CC94 /* Sources */,
+				B399A49A185C56E13AC2E8F5 /* Frameworks */,
+				C680FFCC767292DA30ECA3DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FluidInterfacesSwiftUI (tvOS)";
+			productName = "FluidInterfacesSwiftUI (tvOS)";
+			productReference = D6BCD54164961437D6034643 /* FluidInterfacesSwiftUI (tvOS).app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD2D2C6D3395BF6781670B87 /* FluidInterfacesSwiftUI (visionOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8356B766AC1E94C5E1B2416F /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (visionOS)" */;
+			buildPhases = (
+				8B094640518062F367030EEC /* Sources */,
+				0C64AF1D9950294EFF854CF0 /* Frameworks */,
+				F515578D872363D19B4464D1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FluidInterfacesSwiftUI (visionOS)";
+			productName = "FluidInterfacesSwiftUI (visionOS)";
+			productReference = 338B6C612D9644F6CF9D1394 /* FluidInterfacesSwiftUI (visionOS).app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,6 +469,8 @@
 				5205F4E3265FC1E5007CEBAD /* FluidInterfacesSwiftUI (macOS) */,
 				5205F4EB265FC1E5007CEBAD /* Tests iOS */,
 				5205F4F6265FC1E5007CEBAD /* Tests macOS */,
+				DD2D2C6D3395BF6781670B87 /* FluidInterfacesSwiftUI (visionOS) */,
+				7096AF8DB9C69F5CDA02F9D2 /* FluidInterfacesSwiftUI (tvOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -370,9 +506,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C680FFCC767292DA30ECA3DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEE5E3C8DF68426F12C63088 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F515578D872363D19B4464D1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4AEC605DC6F789A4C68AADDC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1B2CAA0E798D7F7886F7CC94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46649FE93BE349B2BDDA749E /* FluidInterfacesSwiftUIApp.swift in Sources */,
+				2125DBCEBC52E48684081264 /* ContentView.swift in Sources */,
+				7B30AEA67BCD72E6A2DD254C /* Extensions.swift in Sources */,
+				338A36BE20634AF466D97354 /* CalculatorButtonView.swift in Sources */,
+				DED74B4E0C86C333C1B3B237 /* SpringAnimationsView.swift in Sources */,
+				2DB1400F88DD23D80948F05D /* FlashlightButtonView.swift in Sources */,
+				BE0B8034718FC2C19FA9B976 /* RubberbandingView.swift in Sources */,
+				01B14B85383457BCCE87A686 /* AccelerationPausingView.swift in Sources */,
+				289B76BFF1072B0C5FBB925C /* RewardingMomentumView.swift in Sources */,
+				97A893B5F4738C901FA199F8 /* FaceTimePiPView.swift in Sources */,
+				E1E7D07025E8F9D6ADF67974 /* FormatedNumView.swift in Sources */,
+				BB73B485C21C91BAAF04135F /* GradientView.swift in Sources */,
+				8E83EDD6FF401C649C495E04 /* ViewModifiers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5205F4D8265FC1E5007CEBAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,6 +601,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8B094640518062F367030EEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7601DD39F8B4F199F51F3826 /* FluidInterfacesSwiftUIApp.swift in Sources */,
+				BB04E98BFAB1F23595AAAD66 /* ContentView.swift in Sources */,
+				41031AF9CBDFB30D2973FC54 /* Extensions.swift in Sources */,
+				DBE5354067B8C16267E43E7D /* CalculatorButtonView.swift in Sources */,
+				FAD7210E4AA156E8379349EA /* SpringAnimationsView.swift in Sources */,
+				6C638A75614F4D0EC8CBBF0F /* FlashlightButtonView.swift in Sources */,
+				72A4ED7FFADB014830EB81C0 /* RubberbandingView.swift in Sources */,
+				6F26D7EA9F8E95DD718B726C /* AccelerationPausingView.swift in Sources */,
+				AA25E62573DD094048BAF442 /* RewardingMomentumView.swift in Sources */,
+				17B6B6E9904AF9FE05D4762A /* FaceTimePiPView.swift in Sources */,
+				7A967138D112AC4A0C8E8E1E /* FormatedNumView.swift in Sources */,
+				FD204B4CDE3624676BE1214E /* GradientView.swift in Sources */,
+				56C683B695B41E6DA6FCE246 /* ViewModifiers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -445,6 +637,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		49CDF9BBC1E8A32B8872BD67 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GTL29ANKNP;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI.tvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator";
+				SWIFT_VERSION = 6.0;
+				TVOS_DEPLOYMENT_TARGET = 26.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		5205F504265FC1E5007CEBAD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -567,7 +782,7 @@
 				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -575,7 +790,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI;
 				PRODUCT_NAME = FluidInterfacesSwiftUI;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -589,7 +805,7 @@
 				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -597,7 +813,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI;
 				PRODUCT_NAME = FluidInterfacesSwiftUI;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -620,11 +837,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI;
 				PRODUCT_NAME = FluidInterfacesSwiftUI;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -645,11 +863,12 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI;
 				PRODUCT_NAME = FluidInterfacesSwiftUI;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -660,7 +879,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTL29ANKNP;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -669,7 +888,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.frad.Tests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "FluidInterfacesSwiftUI (iOS)";
 			};
@@ -682,7 +901,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GTL29ANKNP;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -691,7 +910,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "me.frad.Tests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "FluidInterfacesSwiftUI (iOS)";
 				VALIDATE_PRODUCT = YES;
@@ -711,11 +930,11 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.frad.Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_TARGET_NAME = "FluidInterfacesSwiftUI (macOS)";
 			};
 			name = Debug;
@@ -733,12 +952,79 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.frad.Tests-macOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_TARGET_NAME = "FluidInterfacesSwiftUI (macOS)";
+			};
+			name = Release;
+		};
+		A72D0710EB4B6140D7AC5203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GTL29ANKNP;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = visionOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI.visionOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_VERSION = 6.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		A816D2D83A227295D8B53F14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GTL29ANKNP;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI.tvOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator";
+				SWIFT_VERSION = 6.0;
+				TVOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		BD9CEE478EC65F302F1EA7B5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GTL29ANKNP;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = visionOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.frad.FluidInterfacesSwiftUI.visionOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = xros;
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};
@@ -786,6 +1072,24 @@
 			buildConfigurations = (
 				5205F510265FC1E5007CEBAD /* Debug */,
 				5205F511265FC1E5007CEBAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8356B766AC1E94C5E1B2416F /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (visionOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD9CEE478EC65F302F1EA7B5 /* Release */,
+				A72D0710EB4B6140D7AC5203 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AE9D2A1CAE00A99C3734538C /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49CDF9BBC1E8A32B8872BD67 /* Release */,
+				A816D2D83A227295D8B53F14 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
