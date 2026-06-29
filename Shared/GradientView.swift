@@ -27,14 +27,26 @@ struct GradientView: View {
 // MARK: - MeshBackgroundView
 
 /// A subtle 4-corner `MeshGradient` used as the "fluid" background in place of a
-/// flat black fill. iOS 18+ / macOS 15+ / visionOS 2+ / tvOS 18+.
+/// flat black fill. Adapts to light/dark color schemes. iOS 18+ / macOS 15+ /
+/// visionOS 2+ / tvOS 18+.
 struct MeshBackgroundView: View {
-  var colors: [Color] = [
-    Color(red: 0.05, green: 0.05, blue: 0.08),
-    Color(red: 0.08, green: 0.06, blue: 0.12),
-    Color(red: 0.04, green: 0.07, blue: 0.10),
-    Color(red: 0.06, green: 0.05, blue: 0.09),
-  ]
+  @Environment(\.colorScheme) private var colorScheme
+
+  private var colors: [Color] {
+    colorScheme == .dark
+      ? [
+        Color(red: 0.05, green: 0.05, blue: 0.08),
+        Color(red: 0.08, green: 0.06, blue: 0.12),
+        Color(red: 0.04, green: 0.07, blue: 0.10),
+        Color(red: 0.06, green: 0.05, blue: 0.09),
+      ]
+      : [
+        Color(red: 0.96, green: 0.96, blue: 0.98),
+        Color(red: 0.92, green: 0.94, blue: 0.88),
+        Color(red: 0.96, green: 0.93, blue: 0.90),
+        Color(red: 0.94, green: 0.96, blue: 0.91),
+      ]
+  }
 
   var body: some View {
     MeshGradient(

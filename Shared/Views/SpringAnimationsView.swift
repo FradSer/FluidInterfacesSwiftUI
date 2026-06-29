@@ -50,21 +50,31 @@ struct SpringAnimationsView: View {
       // The phaseAnimator lives in this view's hierarchy so its `animation`
       // closure reads `spring` from `@State` directly — each phase transition
       // re-evaluates the closure, re-tuning the spring live as the sliders move.
-      RoundedRectangle(cornerRadius: 32, style: .continuous)
-        .fill(
-          LinearGradient(
-            colors: [.springTop, .springBottom],
-            startPoint: .top,
-            endPoint: .bottom
-          )
-        )
-        .frame(width: 120, height: 120)
-        .phaseAnimator([false, true]) { content, phase in
-          content.offset(x: phase ? 120 : -120)
-        } animation: { _ in
-          .spring(spring)
-        }
-        .containerRelativeFrame([.horizontal])
+      // The shape animates inside a fixed, layout-neutral box (GeometryReader
+      // sized once, overlay for the offset content) so the spring's horizontal
+      // offset never feeds back into the surrounding/window layout — that
+      // feedback previously stalled the animation and recursed AppKit's
+      // Update Constraints pass.
+      GeometryReader { proxy in
+        Color.clear
+          .overlay {
+            RoundedRectangle(cornerRadius: 32, style: .continuous)
+              .fill(
+                LinearGradient(
+                  colors: [.springTop, .springBottom],
+                  startPoint: .top,
+                  endPoint: .bottom
+                )
+              )
+              .frame(width: 120, height: 120)
+              .phaseAnimator([false, true]) { content, phase in
+                content.offset(x: phase ? proxy.size.width / 2 - 60 : -proxy.size.width / 2 + 60)
+              } animation: { _ in
+                .spring(spring)
+              }
+          }
+      }
+      .frame(height: 120)
 
       VStack(spacing: 24) {
         SliderRow(title: "Response (Speed)", value: $response)

@@ -118,7 +118,7 @@ struct CalculatorButtonView: View {
         }
         Text(description)
       }
-      .foregroundStyle(.white)
+      .foregroundStyle(.primary)
     }
   }
 }

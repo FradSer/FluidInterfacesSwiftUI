@@ -63,8 +63,7 @@ struct FaceTimePiPView: View {
             RoundedRectangle(cornerRadius: 8, style: .continuous)
               .stroke(Color.gray.opacity(0.5), lineWidth: 2)
               .frame(width: cardSize.width, height: cardSize.height)
-              .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: corner.alignment)
-              .padding(16)
+              .position(position(for: corner, in: geometry))
           }
 
           card
@@ -154,7 +153,7 @@ struct FaceTimePiPView: View {
       Text("Active Corner").textCase(.uppercase)
       Text(activeCorner.title).font(.system(.body).monospacedDigit().bold())
     }
-    .foregroundStyle(.white)
+    .foregroundStyle(.primary)
     .padding()
     .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
   }

@@ -60,7 +60,7 @@ struct AccelerationPausingView: View {
           if hasPaused {
             Text("Paused")
               .textCase(.uppercase)
-              .foregroundStyle(.white)
+              .foregroundStyle(.primary)
               .offset(y: currentPosition.height)
           }
           RoundedRectangle(cornerRadius: 32, style: .continuous)
@@ -134,7 +134,7 @@ struct AccelerationPausingView: View {
           ))
         }
       }
-      .foregroundStyle(.white)
+      .foregroundStyle(.primary)
       .frame(maxWidth: .infinity, alignment: .center)
       .padding()
     }

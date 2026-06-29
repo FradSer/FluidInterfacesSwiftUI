@@ -137,7 +137,7 @@ struct RewardingMomentumView: View {
         Spacer()
         FormatedNumView(num: Binding(get: { y }, set: { _ in }))
       }
-      .foregroundStyle(.white)
+      .foregroundStyle(.primary)
       .padding()
       .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
       .padding()

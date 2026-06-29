@@ -39,10 +39,10 @@ enum Demo: String, CaseIterable, Identifiable {
     case .calculator: "plus.square"
     case .spring: "waveform"
     case .flashlight: "flashlight.on.fill"
-    case .rubberbanding: "arrow.up.left.and.down.right.magnify"
+    case .rubberbanding: "arrow.up.and.down.and.arrow.left.and.right"
     case .accelerationPausing: "speedometer"
     case .rewardingMomentum: "rectangle.stack"
-    case .faceTimePiP: "rectangle.pictureinpicture"
+    case .faceTimePiP: "pip"
     }
   }
 
@@ -85,8 +85,15 @@ struct ContentView: View {
       .scrollContentBackground(.hidden)
       .listRowSeparator(.hidden)
       .navigationTitle("Fluid Interfaces")
+      #if !os(macOS)
+        .navigationBarTitleDisplayMode(.inline)
+      #endif
       .navigationDestination(for: Demo.self) { demo in
         demo.destination
+          #if !os(macOS)
+            .navigationTitle(demo.title)
+            .navigationBarTitleDisplayMode(.inline)
+          #endif
       }
     }
   }
