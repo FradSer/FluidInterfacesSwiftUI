@@ -136,7 +136,7 @@ struct FaceTimePiPView: View {
     RoundedRectangle(cornerRadius: 8, style: .continuous)
       .fill(
         LinearGradient(
-          colors: [.pipTop, .pipBottom],
+          colors: [.piPTop, .piPBottom],
           startPoint: .top,
           endPoint: .bottom
         )
