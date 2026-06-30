@@ -14,22 +14,7 @@ public extension View {
   }
 }
 
-/// Semantic color tokens backed by the asset catalog so they adapt to dark mode
-/// and stay tint-friendly under Liquid Glass.
-public extension Color {
-  static let buttonBackground = Color("ButtonBackground", bundle: .main)
-  static let buttonBackgroundHighlighted = Color(
-    "ButtonBackgroundHighlighted", bundle: .main)
-
-  // Per-demo gradient endpoints (visual identity preserved from the original).
-  static let springTop = Color("SpringTop", bundle: .main)
-  static let springBottom = Color("SpringBottom", bundle: .main)
-  static let rubberbandingTop = Color("RubberbandingTop", bundle: .main)
-  static let rubberbandingBottom = Color("RubberbandingBottom", bundle: .main)
-  static let accelerationTop = Color("AccelerationTop", bundle: .main)
-  static let accelerationBottom = Color("AccelerationBottom", bundle: .main)
-  static let momentumTop = Color("MomentumTop", bundle: .main)
-  static let momentumBottom = Color("MomentumBottom", bundle: .main)
-  static let pipTop = Color("PiPTop", bundle: .main)
-  static let pipBottom = Color("PiPBottom", bundle: .main)
-}
+// Semantic color tokens (`Color.buttonBackground`, etc.) are now provided by the
+// asset catalog's generated Swift symbol extensions
+// (ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES), which
+// also expose `NSColor`/`ShapeStyle` variants and stay in sync with the catalog.
