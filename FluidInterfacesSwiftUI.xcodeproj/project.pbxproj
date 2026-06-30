@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 100;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,6 +48,10 @@
 		526A726E2660D66300B11792 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A726C2660D66300B11792 /* Extensions.swift */; };
 		530108B0A40B20BC75427494 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D951F6F8253AE22CC68336B /* Foundation.framework */; };
 		56C683B695B41E6DA6FCE246 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526A72692660D5A700B11792 /* ViewModifiers.swift */; };
+		5F1A0B0C0D0E0F0011223345 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A0B0C0D0E0F0011223344 /* AppIcon.icon */; };
+		5F1A0B0C0D0E0F0011223346 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A0B0C0D0E0F0011223344 /* AppIcon.icon */; };
+		5F1A0B0C0D0E0F0011223347 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A0B0C0D0E0F0011223344 /* AppIcon.icon */; };
+		5F1A0B0C0D0E0F0011223348 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A0B0C0D0E0F0011223344 /* AppIcon.icon */; };
 		6C638A75614F4D0EC8CBBF0F /* FlashlightButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECD912664FE1200F69884 /* FlashlightButtonView.swift */; };
 		6F26D7EA9F8E95DD718B726C /* AccelerationPausingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA62667676000F69884 /* AccelerationPausingView.swift */; };
 		72A4ED7FFADB014830EB81C0 /* RubberbandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522ECDA3266641C400F69884 /* RubberbandingView.swift */; };
@@ -113,6 +117,7 @@
 		525024EB27159F0400B8525D /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		526A72692660D5A700B11792 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		526A726C2660D66300B11792 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5F1A0B0C0D0E0F0011223344 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		6D951F6F8253AE22CC68336B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9595F1F8E340B532BB23901B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1529CCD330FA157AEA105CE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,47 +128,35 @@
 /* Begin PBXFrameworksBuildPhase section */
 		0C64AF1D9950294EFF854CF0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				EDB6F0AC0AD20ECFAA7ED031 /* Foundation.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4D9265FC1E5007CEBAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4E1265FC1E5007CEBAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4E9265FC1E5007CEBAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4F4265FC1E5007CEBAD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B399A49A185C56E13AC2E8F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				530108B0A40B20BC75427494 /* Foundation.framework in Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -218,6 +211,7 @@
 				522ECDAF2668B82C00F69884 /* Components */,
 				526A726F2660D67200B11792 /* Styles */,
 				5205F4D7265FC1E5007CEBAD /* Assets.xcassets */,
+				5F1A0B0C0D0E0F0011223344 /* AppIcon.icon */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -306,7 +300,6 @@
 			children = (
 				A1529CCD330FA157AEA105CE /* Info.plist */,
 			);
-			name = visionOS;
 			path = visionOS;
 			sourceTree = "<group>";
 		};
@@ -315,7 +308,6 @@
 			children = (
 				9595F1F8E340B532BB23901B /* Info.plist */,
 			);
-			name = tvOS;
 			path = tvOS;
 			sourceTree = "<group>";
 		};
@@ -332,8 +324,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = "FluidInterfacesSwiftUI (iOS)";
 			productName = "FluidInterfacesSwiftUI (iOS)";
 			productReference = 5205F4DC265FC1E5007CEBAD /* FluidInterfacesSwiftUI.app */;
@@ -348,8 +338,6 @@
 				5205F4E2265FC1E5007CEBAD /* Resources */,
 			);
 			buildRules = (
-			);
-			dependencies = (
 			);
 			name = "FluidInterfacesSwiftUI (macOS)";
 			productName = "FluidInterfacesSwiftUI (macOS)";
@@ -402,8 +390,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = "FluidInterfacesSwiftUI (tvOS)";
 			productName = "FluidInterfacesSwiftUI (tvOS)";
 			productReference = D6BCD54164961437D6034643 /* FluidInterfacesSwiftUI (tvOS).app */;
@@ -419,8 +405,6 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			name = "FluidInterfacesSwiftUI (visionOS)";
 			productName = "FluidInterfacesSwiftUI (visionOS)";
 			productReference = 338B6C612D9644F6CF9D1394 /* FluidInterfacesSwiftUI (visionOS).app */;
@@ -432,8 +416,9 @@
 		5205F4D0265FC1E3007CEBAD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					5205F4DB265FC1E5007CEBAD = {
 						CreatedOnToolsVersion = 12.5;
@@ -452,7 +437,6 @@
 				};
 			};
 			buildConfigurationList = 5205F4D3265FC1E3007CEBAD /* Build configuration list for PBXProject "FluidInterfacesSwiftUI" */;
-			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -461,6 +445,7 @@
 				Base,
 			);
 			mainGroup = 5205F4CF265FC1E3007CEBAD;
+			preferredProjectObjectVersion = 100;
 			productRefGroup = 5205F4DD265FC1E5007CEBAD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -478,56 +463,47 @@
 /* Begin PBXResourcesBuildPhase section */
 		5205F4DA265FC1E5007CEBAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				5205F502265FC1E5007CEBAD /* Assets.xcassets in Resources */,
+				5F1A0B0C0D0E0F0011223345 /* AppIcon.icon in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4E2265FC1E5007CEBAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				5205F503265FC1E5007CEBAD /* Assets.xcassets in Resources */,
+				5F1A0B0C0D0E0F0011223346 /* AppIcon.icon in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4EA265FC1E5007CEBAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4F5265FC1E5007CEBAD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C680FFCC767292DA30ECA3DE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				EEE5E3C8DF68426F12C63088 /* Assets.xcassets in Resources */,
+				5F1A0B0C0D0E0F0011223347 /* AppIcon.icon in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F515578D872363D19B4464D1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				4AEC605DC6F789A4C68AADDC /* Assets.xcassets in Resources */,
+				5F1A0B0C0D0E0F0011223348 /* AppIcon.icon in Resources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1B2CAA0E798D7F7886F7CC94 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				46649FE93BE349B2BDDA749E /* FluidInterfacesSwiftUIApp.swift in Sources */,
 				2125DBCEBC52E48684081264 /* ContentView.swift in Sources */,
@@ -543,11 +519,9 @@
 				BB73B485C21C91BAAF04135F /* GradientView.swift in Sources */,
 				8E83EDD6FF401C649C495E04 /* ViewModifiers.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4D8265FC1E5007CEBAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				522ECDB72668BD8500F69884 /* FaceTimePiPView.swift in Sources */,
 				522ECD952664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
@@ -563,11 +537,9 @@
 				522ECDAA2667B41900F69884 /* RewardingMomentumView.swift in Sources */,
 				5205F4FE265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4E0265FC1E5007CEBAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				522ECDB82668BD8500F69884 /* FaceTimePiPView.swift in Sources */,
 				522ECD962664FE2F00F69884 /* SpringAnimationsView.swift in Sources */,
@@ -583,27 +555,21 @@
 				522ECDAB2667B41900F69884 /* RewardingMomentumView.swift in Sources */,
 				5205F4FF265FC1E5007CEBAD /* FluidInterfacesSwiftUIApp.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4E8265FC1E5007CEBAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				5205F4F1265FC1E5007CEBAD /* Tests_iOS.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5205F4F3265FC1E5007CEBAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				5205F4FC265FC1E5007CEBAD /* Tests_macOS.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 		8B094640518062F367030EEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 				7601DD39F8B4F199F51F3826 /* FluidInterfacesSwiftUIApp.swift in Sources */,
 				BB04E98BFAB1F23595AAAD66 /* ContentView.swift in Sources */,
@@ -619,7 +585,6 @@
 				FD204B4CDE3624676BE1214E /* GradientView.swift in Sources */,
 				56C683B695B41E6DA6FCE246 /* ViewModifiers.swift in Sources */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
@@ -637,13 +602,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		49CDF9BBC1E8A32B8872BD67 /* Release */ = {
+		49CDF9BBC1E8A32B8872BD67 /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (tvOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -660,10 +624,11 @@
 			};
 			name = Release;
 		};
-		5205F504265FC1E5007CEBAD /* Debug */ = {
+		5205F504265FC1E5007CEBAD /* Debug configuration for PBXProject "FluidInterfacesSwiftUI" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -695,9 +660,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -715,15 +683,17 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		5205F505265FC1E5007CEBAD /* Release */ = {
+		5205F505265FC1E5007CEBAD /* Release configuration for PBXProject "FluidInterfacesSwiftUI" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -755,9 +725,12 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -768,18 +741,18 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
-		5205F507265FC1E5007CEBAD /* Debug */ = {
+		5205F507265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (iOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
@@ -796,13 +769,12 @@
 			};
 			name = Debug;
 		};
-		5205F508265FC1E5007CEBAD /* Release */ = {
+		5205F508265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (iOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
@@ -820,16 +792,17 @@
 			};
 			name = Release;
 		};
-		5205F50A265FC1E5007CEBAD /* Debug */ = {
+		5205F50A265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (macOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -846,16 +819,17 @@
 			};
 			name = Debug;
 		};
-		5205F50B265FC1E5007CEBAD /* Release */ = {
+		5205F50B265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (macOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
@@ -872,12 +846,10 @@
 			};
 			name = Release;
 		};
-		5205F50D265FC1E5007CEBAD /* Debug */ = {
+		5205F50D265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "Tests iOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -894,12 +866,10 @@
 			};
 			name = Debug;
 		};
-		5205F50E265FC1E5007CEBAD /* Release */ = {
+		5205F50E265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "Tests iOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -917,13 +887,12 @@
 			};
 			name = Release;
 		};
-		5205F510265FC1E5007CEBAD /* Debug */ = {
+		5205F510265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "Tests macOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -939,13 +908,12 @@
 			};
 			name = Debug;
 		};
-		5205F511265FC1E5007CEBAD /* Release */ = {
+		5205F511265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "Tests macOS" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = "Tests macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -961,13 +929,12 @@
 			};
 			name = Release;
 		};
-		A72D0710EB4B6140D7AC5203 /* Debug */ = {
+		A72D0710EB4B6140D7AC5203 /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (visionOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = visionOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -983,13 +950,12 @@
 			};
 			name = Debug;
 		};
-		A816D2D83A227295D8B53F14 /* Debug */ = {
+		A816D2D83A227295D8B53F14 /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (tvOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = tvOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1005,13 +971,12 @@
 			};
 			name = Debug;
 		};
-		BD9CEE478EC65F302F1EA7B5 /* Release */ = {
+		BD9CEE478EC65F302F1EA7B5 /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (visionOS)" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GTL29ANKNP;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = visionOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1034,64 +999,57 @@
 		5205F4D3265FC1E3007CEBAD /* Build configuration list for PBXProject "FluidInterfacesSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5205F504265FC1E5007CEBAD /* Debug */,
-				5205F505265FC1E5007CEBAD /* Release */,
+				5205F504265FC1E5007CEBAD /* Debug configuration for PBXProject "FluidInterfacesSwiftUI" */,
+				5205F505265FC1E5007CEBAD /* Release configuration for PBXProject "FluidInterfacesSwiftUI" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		5205F506265FC1E5007CEBAD /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5205F507265FC1E5007CEBAD /* Debug */,
-				5205F508265FC1E5007CEBAD /* Release */,
+				5205F507265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (iOS)" */,
+				5205F508265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (iOS)" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		5205F509265FC1E5007CEBAD /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5205F50A265FC1E5007CEBAD /* Debug */,
-				5205F50B265FC1E5007CEBAD /* Release */,
+				5205F50A265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (macOS)" */,
+				5205F50B265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (macOS)" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		5205F50C265FC1E5007CEBAD /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5205F50D265FC1E5007CEBAD /* Debug */,
-				5205F50E265FC1E5007CEBAD /* Release */,
+				5205F50D265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "Tests iOS" */,
+				5205F50E265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "Tests iOS" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		5205F50F265FC1E5007CEBAD /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5205F510265FC1E5007CEBAD /* Debug */,
-				5205F511265FC1E5007CEBAD /* Release */,
+				5205F510265FC1E5007CEBAD /* Debug configuration for PBXNativeTarget "Tests macOS" */,
+				5205F511265FC1E5007CEBAD /* Release configuration for PBXNativeTarget "Tests macOS" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		8356B766AC1E94C5E1B2416F /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (visionOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD9CEE478EC65F302F1EA7B5 /* Release */,
-				A72D0710EB4B6140D7AC5203 /* Debug */,
+				BD9CEE478EC65F302F1EA7B5 /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (visionOS)" */,
+				A72D0710EB4B6140D7AC5203 /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (visionOS)" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		AE9D2A1CAE00A99C3734538C /* Build configuration list for PBXNativeTarget "FluidInterfacesSwiftUI (tvOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				49CDF9BBC1E8A32B8872BD67 /* Release */,
-				A816D2D83A227295D8B53F14 /* Debug */,
+				49CDF9BBC1E8A32B8872BD67 /* Release configuration for PBXNativeTarget "FluidInterfacesSwiftUI (tvOS)" */,
+				A816D2D83A227295D8B53F14 /* Debug configuration for PBXNativeTarget "FluidInterfacesSwiftUI (tvOS)" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
