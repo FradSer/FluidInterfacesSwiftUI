@@ -54,16 +54,6 @@ struct CalculatorButtonView: View {
   }
 
   private var content: some View {
-    #if !os(tvOS)
-      GlassEffectContainer(spacing: 24) {
-        stack
-      }
-    #else
-      stack
-    #endif
-  }
-
-  private var stack: some View {
     VStack(spacing: 32) {
       HeaderView(
         title: "Simultaneous",
@@ -111,14 +101,16 @@ struct CalculatorButtonView: View {
     var description: String
 
     var body: some View {
-      VStack(alignment: .leading, spacing: 8) {
-        HStack {
-          Text(title).font(.title).textCase(.uppercase)
-          Spacer()
-        }
+      VStack(alignment: .leading, spacing: 6) {
+        Text(title)
+          .font(.headline)
+          .textCase(.uppercase)
+          .foregroundStyle(.secondary)
         Text(description)
+          .font(.subheadline)
+          .foregroundStyle(.primary)
       }
-      .foregroundStyle(.primary)
+      .frame(maxWidth: .infinity, alignment: .leading)
     }
   }
 }
@@ -132,24 +124,21 @@ struct CalculatorButtonStyle: ButtonStyle {
 
   func makeBody(configuration: Configuration) -> some View {
     configuration.label
-      .font(.largeTitle)
+      .font(.system(size: 38, weight: .medium))
       .frame(width: 96, height: 96)
       .foregroundStyle(prominent ? Color.black : Color.white)
-      .background(background)
-      .scaleEffect(configuration.isPressed ? 0.94 : 1)
+      #if !os(tvOS)
+        .glassEffect(
+          prominent
+            ? .regular.tint(.orange).interactive()
+            : .regular.interactive(),
+          in: .circle
+        )
+      #else
+        .background(Circle().fill(prominent ? Color.orange : Color.buttonBackground))
+      #endif
+      .scaleEffect(configuration.isPressed ? 0.92 : 1)
       .animation(.spring(.bouncy), value: configuration.isPressed)
-  }
-
-  @ViewBuilder private var background: some View {
-    if prominent {
-      Circle().fill(.yellow)
-    } else {
-      Circle()
-        .fill(Color.buttonBackground)
-        #if !os(tvOS)
-          .glassEffect(in: .circle)
-        #endif
-    }
   }
 }
 
@@ -157,7 +146,7 @@ struct CalculatorButtonStyle: ButtonStyle {
 
 /// `PrimitiveButtonStyle` demonstrating a sequenced long-press → drag gesture.
 /// Visuals are driven via `visualEffect` (no `GeometryReader`) and the press
-/// state uses native glass. The interactive glass variant is iOS-only.
+/// state uses native glass.
 struct CalculatorSequencedButtonStyle: PrimitiveButtonStyle {
   enum DragState: Equatable {
     case inactive
@@ -205,25 +194,28 @@ struct CalculatorSequencedButtonStyle: PrimitiveButtonStyle {
         }
 
     configuration.label
-      .font(.largeTitle)
+      .font(.system(size: 38, weight: .medium))
       .frame(width: 96, height: 96)
       .foregroundStyle(.white)
-      .background(
-        Circle()
-          .fill(
+      #if !os(tvOS)
+        .glassEffect(
+          dragState.isActive
+            ? .regular.tint(.orange).interactive()
+            : .regular.interactive(),
+          in: .circle
+        )
+      #else
+        .background(
+          Circle().fill(
             dragState.isActive
               ? Color.buttonBackgroundHighlighted
               : Color.buttonBackground
           )
-      )
-      #if os(iOS)
-        .glassEffect(.regular.interactive(), in: .circle)
-      #else
-        .glassEffect(in: .circle)
+        )
       #endif
       .overlay {
         if dragState.isDragging {
-          Circle().stroke(Color.white, lineWidth: 2)
+          Circle().strokeBorder(Color.white.opacity(0.6), lineWidth: 2)
         }
       }
       .offset(

@@ -61,6 +61,9 @@ struct RubberbandingView: View {
           )
         )
         .frame(width: 120, height: 120)
+        #if !os(tvOS)
+          .glassEffect(.regular, in: .rect(cornerRadius: 32))
+        #endif
         .offset(y: rubberbanded(dragHeight))
         .gesture(
           DragGesture()

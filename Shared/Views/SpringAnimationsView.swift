@@ -67,6 +67,9 @@ struct SpringAnimationsView: View {
                 )
               )
               .frame(width: 120, height: 120)
+              #if !os(tvOS)
+                .glassEffect(.regular, in: .rect(cornerRadius: 32))
+              #endif
               .phaseAnimator([false, true]) { content, phase in
                 content.offset(x: phase ? proxy.size.width / 2 - 60 : -proxy.size.width / 2 + 60)
               } animation: { _ in
@@ -76,9 +79,16 @@ struct SpringAnimationsView: View {
       }
       .frame(height: 120)
 
-      VStack(spacing: 24) {
+      VStack(spacing: 20) {
         SliderRow(title: "Response (Speed)", value: $response)
+        Divider()
         SliderRow(title: "Damping Fraction", value: $dampingFraction)
+      }
+      .padding(20)
+      .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 20))
+      .overlay {
+        RoundedRectangle(cornerRadius: 20)
+          .strokeBorder(.separator, lineWidth: 1)
       }
     }
     .padding()
@@ -96,12 +106,17 @@ struct SpringAnimationsView: View {
     @Binding var value: Double
 
     var body: some View {
-      VStack(spacing: 6) {
+      VStack(spacing: 8) {
         HStack {
-          Text(title).textCase(.uppercase)
+          Text(title)
+            .font(.subheadline.weight(.medium))
+            .foregroundStyle(.secondary)
           Spacer()
           Text("\(value, specifier: "%.2f")")
-            .font(.system(.body).monospacedDigit())
+            .font(.system(.subheadline, design: .monospaced).weight(.bold))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
+            .background(.quaternary, in: Capsule())
             .contentTransition(.numericText(value: value))
             .animation(.smooth, value: value)
         }

@@ -71,19 +71,23 @@ struct ContentView: View {
         NavigationLink(value: demo) {
           HStack(spacing: 16) {
             Image(systemName: demo.symbolName)
-              .font(.title3)
-              .frame(width: 28, height: 28)
+              .font(.headline)
+              .frame(width: 32, height: 32)
               .foregroundStyle(.tint)
-            Text(demo.title).bold()
+              .background(.quaternary, in: RoundedRectangle(cornerRadius: 8))
+            Text(demo.title)
+              .font(.body.weight(.medium))
           }
           .padding(.vertical, 4)
-          .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
       }
-      .listStyle(.automatic)
+      #if os(iOS)
+        .listStyle(.insetGrouped)
+      #else
+        .listStyle(.sidebar)
+      #endif
+      .background(MeshBackgroundView().ignoresSafeArea())
       .scrollContentBackground(.hidden)
-      .listRowSeparator(.hidden)
       .navigationTitle("Fluid Interfaces")
       #if !os(macOS)
         .navigationBarTitleDisplayMode(.inline)

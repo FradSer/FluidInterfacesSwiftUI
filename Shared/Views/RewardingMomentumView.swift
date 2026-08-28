@@ -72,9 +72,8 @@ struct RewardingMomentumView: View {
             #endif
             .overlay(alignment: .top) {
               Capsule()
-                .fill(.primary)
-                .opacity(0.5)
-                .frame(width: 64, height: 8)
+                .fill(.secondary)
+                .frame(width: 48, height: 5)
                 .padding(.top, 12)
             }
             .frame(height: geometry.size.height - openY)
@@ -132,14 +131,22 @@ struct RewardingMomentumView: View {
   private func debugView(y: CGFloat) -> some View {
     VStack {
       Spacer()
-      HStack(spacing: 32) {
-        Text("Current Position:").textCase(.uppercase)
+      HStack {
+        Text("Current Position")
+          .font(.subheadline)
+          .foregroundStyle(.secondary)
         Spacer()
-        FormatedNumView(num: Binding(get: { y }, set: { _ in }))
+        FormatedNumView(num: y)
+          .padding(.horizontal, 10)
+          .padding(.vertical, 4)
+          .background(.quaternary, in: Capsule())
       }
-      .foregroundStyle(.primary)
-      .padding()
-      .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+      .padding(16)
+      .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+      .overlay {
+        RoundedRectangle(cornerRadius: 16)
+          .strokeBorder(.separator, lineWidth: 1)
+      }
       .padding()
     }
   }

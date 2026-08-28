@@ -56,12 +56,16 @@ struct AccelerationPausingView: View {
           currentVelocityY: $currentVelocity.height,
           currentOffsetY: $currentPosition.height
         )
-        VStack {
+        VStack(spacing: 12) {
           if hasPaused {
             Text("Paused")
+              .font(.caption.weight(.bold))
               .textCase(.uppercase)
-              .foregroundStyle(.primary)
-              .offset(y: currentPosition.height)
+              .foregroundStyle(.green)
+              .padding(.horizontal, 12)
+              .padding(.vertical, 6)
+              .background(.quaternary, in: Capsule())
+              .transition(.scale.combined(with: .opacity))
           }
           RoundedRectangle(cornerRadius: 32, style: .continuous)
             .fill(
@@ -72,6 +76,9 @@ struct AccelerationPausingView: View {
               )
             )
             .frame(width: 120, height: 120)
+            #if !os(tvOS)
+              .glassEffect(.regular, in: .rect(cornerRadius: 32))
+            #endif
             .offset(y: currentPosition.height)
             .gesture(drag)
         }
@@ -115,28 +122,37 @@ struct AccelerationPausingView: View {
     @Binding var currentOffsetY: CGFloat
 
     var body: some View {
-      VStack(alignment: .trailing, spacing: 8) {
-        Spacer()
+      VStack(spacing: 12) {
         HStack {
-          Text("Last Velocity:")
+          Text("Last Velocity")
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
           Spacer()
-          FormatedNumView(num: Binding(
-            get: { abs(currentVelocityY) },
-            set: { _ in }
-          ))
+          FormatedNumView(num: abs(currentVelocityY))
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
+            .background(.quaternary, in: Capsule())
         }
+        Divider()
         HStack {
-          Text("Current Offset:")
+          Text("Current Offset")
+            .font(.subheadline)
+            .foregroundStyle(.secondary)
           Spacer()
-          FormatedNumView(num: Binding(
-            get: { currentOffsetY == 0 ? 0 : -currentOffsetY },
-            set: { _ in }
-          ))
+          FormatedNumView(num: currentOffsetY == 0 ? 0 : -currentOffsetY)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 4)
+            .background(.quaternary, in: Capsule())
         }
       }
-      .foregroundStyle(.primary)
-      .frame(maxWidth: .infinity, alignment: .center)
+      .padding(16)
+      .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+      .overlay {
+        RoundedRectangle(cornerRadius: 16)
+          .strokeBorder(.separator, lineWidth: 1)
+      }
       .padding()
+      .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
     }
   }
 

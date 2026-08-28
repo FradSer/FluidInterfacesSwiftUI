@@ -15,11 +15,11 @@ import SwiftUI
 /// `contentTransition(.numericText())` the value now rolls smoothly, gated by a
 /// value-based `.animation(_:value:)`.
 struct FormatedNumView: View {
-  @Binding var num: CGFloat
+  var num: CGFloat
 
   var body: some View {
     Text("\(num, specifier: "%.2f")")
-      .font(.system(.body).monospacedDigit().bold())
+      .font(.system(.body, design: .monospaced).monospacedDigit().bold())
       .contentTransition(.numericText(value: num))
       .animation(.smooth, value: num)
   }
@@ -30,7 +30,7 @@ struct FormatedNumView: View {
 #Preview {
   @Previewable @State var num: CGFloat = 89.64
   return VStack {
-    FormatedNumView(num: $num)
+    FormatedNumView(num: num)
     Button("Randomize") {
       num = CGFloat.random(in: 0...100)
     }

@@ -60,8 +60,8 @@ struct FaceTimePiPView: View {
       GeometryReader { geometry in
         ZStack {
           ForEach(PiPCorner.allCases) { corner in
-            RoundedRectangle(cornerRadius: 8, style: .continuous)
-              .stroke(Color.gray.opacity(0.5), lineWidth: 2)
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+              .strokeBorder(.separator, style: StrokeStyle(lineWidth: 1.5, dash: [6, 6]))
               .frame(width: cardSize.width, height: cardSize.height)
               .position(position(for: corner, in: geometry))
           }
@@ -133,7 +133,7 @@ struct FaceTimePiPView: View {
   // MARK: Private
 
   private var card: some View {
-    RoundedRectangle(cornerRadius: 8, style: .continuous)
+    RoundedRectangle(cornerRadius: 16, style: .continuous)
       .fill(
         LinearGradient(
           colors: [.piPTop, .piPBottom],
@@ -142,20 +142,41 @@ struct FaceTimePiPView: View {
         )
       )
       #if !os(tvOS)
-        .glassEffect(.regular, in: .rect(cornerRadius: 8))
+        .glassEffect(.regular.interactive(), in: .rect(cornerRadius: 16))
       #endif
   }
 
   private var debugView: some View {
-    VStack(alignment: .center, spacing: 8) {
-      Text("Last Velocity").textCase(.uppercase)
-      FormatedNumView(num: Binding(get: { lastVelocity }, set: { _ in }))
-      Text("Active Corner").textCase(.uppercase)
-      Text(activeCorner.title).font(.system(.body).monospacedDigit().bold())
+    VStack(spacing: 12) {
+      HStack {
+        Text("Last Velocity")
+          .font(.subheadline)
+          .foregroundStyle(.secondary)
+        Spacer()
+        FormatedNumView(num: lastVelocity)
+          .padding(.horizontal, 10)
+          .padding(.vertical, 4)
+          .background(.quaternary, in: Capsule())
+      }
+      Divider()
+      HStack {
+        Text("Active Corner")
+          .font(.subheadline)
+          .foregroundStyle(.secondary)
+        Spacer()
+        Text(activeCorner.title)
+          .font(.system(.subheadline, design: .monospaced).weight(.bold))
+          .padding(.horizontal, 10)
+          .padding(.vertical, 4)
+          .background(.quaternary, in: Capsule())
+      }
     }
-    .foregroundStyle(.primary)
-    .padding()
-    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+    .padding(16)
+    .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16))
+    .overlay {
+      RoundedRectangle(cornerRadius: 16)
+        .strokeBorder(.separator, lineWidth: 1)
+    }
   }
 
   private func position(for corner: PiPCorner, in geometry: GeometryProxy) -> CGPoint {

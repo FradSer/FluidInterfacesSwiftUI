@@ -54,32 +54,35 @@ struct FlashlightButtonView: View {
 
   #if !os(tvOS)
     private var button: some View {
-      Image(systemName: isOn ? "flashlight.on.fill" : "flashlight.off.fill")
-        .font(.largeTitle)
-        .frame(width: 96, height: 96)
-        .foregroundStyle(isOn ? .black : .white)
-        .background(
-          Circle()
-            .fill(isOn ? Color.yellow : Color.buttonBackground)
-        )
-        .glassEffect(
-          isOn ? .regular.tint(.yellow) : .regular,
-          in: .circle
-        )
-        .symbolEffect(
-          .bounce,
-          options: .repeat(.continuous),
-          value: hintTrigger
-        )
-        .gesture(
-          LongPressGesture(minimumDuration: activationDuration)
-            .onEnded { _ in
-              isOn.toggle()
-              hintTrigger &+= 1
-            }
-        )
-        .sensoryFeedback(.selection, trigger: hintTrigger)
-        .sensoryFeedback(.impact(weight: .medium), trigger: isOn)
+      Button {
+        // Semantic action for accessibility; long-press gesture handles fluid activation.
+      } label: {
+        Image(systemName: isOn ? "flashlight.on.fill" : "flashlight.off.fill")
+          .font(.system(size: 38))
+          .frame(width: 96, height: 96)
+          .foregroundStyle(isOn ? .black : .white)
+          .glassEffect(
+            isOn ? .regular.tint(.yellow).interactive() : .regular.interactive(),
+            in: .circle
+          )
+          .symbolEffect(
+            .bounce,
+            options: .repeat(.continuous),
+            value: hintTrigger
+          )
+      }
+      .buttonStyle(.plain)
+      .accessibilityLabel(isOn ? "Turn flashlight off" : "Turn flashlight on")
+      .accessibilityValue(isOn ? "On" : "Off")
+      .simultaneousGesture(
+        LongPressGesture(minimumDuration: activationDuration)
+          .onEnded { _ in
+            isOn.toggle()
+            hintTrigger &+= 1
+          }
+      )
+      .sensoryFeedback(.selection, trigger: hintTrigger)
+      .sensoryFeedback(.impact(weight: .medium), trigger: isOn)
     }
   #else
     // tvOS Siri Remote has no long-press gesture or haptics; expose a plain toggle.
